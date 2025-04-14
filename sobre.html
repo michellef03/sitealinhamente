@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre o Teste - AlinhaMente</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Identidade Visual Base */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      padding-top: 80px; /* espaço para header fixo */
+      line-height: 1.6;
+      margin: 0; /* remover margens padrões */
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header fixo do site */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 999;
+    }
+    .site-header .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .site-header img.logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .site-header .nav-link {
+      font-weight: 500;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px; /* reduzido para 30 */
+      margin-top: 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .hero .btn-hero {
+      padding: 15px 30px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+    .hero .btn-hero:hover {
+      background-color: #0056b3;
+    }
+
+    /* Cards para seções */
+    .card-section {
+      background-color: #fafafa;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 10px; /* reduzido para 20 */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    .card-section h2, 
+    .card-section h3 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .card-section p, 
+    .card-section li {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .card-section blockquote {
+      font-size: 1rem;
+      margin: 15px 0;
+      padding-left: 15px;
+      border-left: 4px solid #ccc;
+    }
+
+    /* Botão Final */
+    .btn-final {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    .btn-final:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsividade */
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .hero .btn-hero,
+      .btn-final {
+        font-size: 1.1rem;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header fixo -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">AlinhaMente</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSobre">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navSobre">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre o teste</a></li>
+            <li class="nav-item"><a class="nav-link" href="quemSouEu.html">Quem sou eu</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Teste</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Esse teste não é sobre ser produtivo.<br>É sobre <span style="color: #ae74bb;">viver com intenção.</span></h1>    <p>E isso começa por olhar com sinceridade pra onde sua energia tem ido.</p>
+    <a href="index.html" class="btn-hero">Começar agora</a>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <!-- Linha 1: Dois cards lado a lado (h-100 para uniformizar altura) -->
+    <div class="row mb-3">
+      <!-- Card: Por que esse teste existe? -->
+      <div class="col-md-6 d-flex align-items-stretch mb-3 mb-md-0">
+        <div class="card-section h-100 w-100">
+          <h2>Por que esse teste existe?</h2>
+          <p>Você já se perguntou:<br><strong>“O que eu tô fazendo com a minha vida… faz sentido pra mim?”</strong></p>
+          <p>Se sim, esse teste é pra você.</p>
+          <ul>
+            <li>🛑 Não é um diagnóstico</li>
+            <li>🧭 Não serve pra te consertar</li>
+            <li>🌿 É um convite pra pausar e se escutar</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Card: O que você ganha com isso -->
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card-section h-100 w-100">
+          <h2>O que você ganha com isso?</h2>
+          <ul>
+            <li><strong>Clareza:</strong> sobre onde sua energia tá indo</li>
+            <li><strong>Consciência:</strong> sobre áreas negligenciadas</li>
+            <li><strong>Primeiros passos:</strong> pra realinhar o que importa</li>
+            <li>📍 Um <strong>mapa visual</strong> + um <strong>subarquétipo emocional</strong> (ex: <em>Caminhante em Travessia</em>) pra te ajudar a nomear o seu momento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 2: Card Leva só 5 minutos -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="card-section">
+          <h2>Leva só 5 minutos</h2>
+          <blockquote>
+            Faça no seu ritmo – com fone no ouvido, café na mão ou do jeito que for mais seu.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 3: Card O que o teste avalia -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="card-section">
+          <h2>O que o teste avalia?</h2>
+          <blockquote>
+            Através de 4 dimensões principais, você vai enxergar <strong>onde está sua energia hoje – e se ela tá alinhada com o que importa pra você.</strong>
+          </blockquote>
+          <p><strong>V.I.D.A.</strong> representa:</p>
+          <ul>
+            <li><strong>V – Vínculos:</strong> com quem você pode contar</li>
+            <li><strong>I – Independência:</strong> se você sente que está no controle das suas decisões</li>
+            <li><strong>D – Direção:</strong> se o que você faz hoje te aproxima da vida que quer viver</li>
+            <li><strong>A – Acolhimento:</strong> se você tem cuidado de você — por dentro e por fora</li>
+          </ul>
+          <p>Para cada dimensão, responda:</p>
+          <ol>
+            <li>O quanto isso é <strong>importante</strong> pra você?</li>
+            <li>O quanto você está <strong>satisfeito</strong> com isso?</li>
+            <li>O quanto você tem <strong>investido tempo</strong> ou energia nisso?</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 4: Card unindo "De onde vem tudo isso" e "Quer se aprofundar?" -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="card-section">
+          <h2>De onde vem tudo isso?</h2>
+          <ul>
+            <li>A <strong>Teoria da Autodeterminação</strong> (psicologia motivacional)</li>
+            <li>O método <strong>P.A.R.E.</strong> (parar, avaliar, roteirizar, estabilizar)</li>
+            <li>E a vida real – perrengues, recomeços e tentativas sinceras de viver com intenção</li>
+          </ul>
+          <hr>
+          <h2>Quer se aprofundar?</h2>
+          <p>
+            🔍 Quer saber mais?<br>
+            👉 <a href="#" target="_blank" style="color: blue; text-decoration: underline;">Clique aqui</a> para ver o vídeo que explica o método <strong>P.A.R.E.</strong> completo ou<br> 
+            👉 <a href="#" target="_blank" style="color: blue; text-decoration: underline;">clique aqui</a> para entender como utilizar esse teste no dia a dia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 5: Card unindo "Antes de começar..." e botão final -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="card-section text-center">
+          <h2>Antes de começar...</h2>
+          <blockquote>
+            ✨ Não existe certo ou errado aqui.<br>
+            Existe só o <strong>agora</strong>: o que você sente, o que você quer e o que pode escolher hoje.
+          </blockquote>
+          <a href="index.html" class="btn-final mt-3">Fazer o teste agora</a>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="text-center mt-4 py-3" style="border-top: 1px solid #eaeaea;">
+    © 2024 Longa História Curta — Criado por Michelle como parte do método P.A.R.E.<br>
+    Todos os direitos reservados. Este teste é uma ferramenta de autoconhecimento, não substitui diagnóstico profissional.
+  </footer>
+
+  <!-- Bootstrap Bundle (inclui Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
