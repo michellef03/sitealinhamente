@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WXNPB33F');</script>
+    <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlinhaMente</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Paleta e tipografia */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      padding-top: 90px;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    /* Banner no topo */
+    .banner {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    /* NavBar */
+    .navbar {
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .nav-link { font-weight: 500; }
+    /* Cabeçalho principal */
+    .header-title {
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .header-subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    /* Box colapsável do lembrete */
+    .lembrete-card {
+      background-color: #f0f9ff;
+      border: 1px solid #cce5ff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .lembrete-card .card-header {
+      background-color: #d0e7fd;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lembrete-card .card-header h5 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .lembrete-card .card-body {
+      padding: 16px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Caixa do método P.A.R.E. */
+    .pare-metodo {
+      background-color: #ece8fe;
+      border: 1px solid #c3d2f5;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+    /* Tabela de entrada com coluna "Dimensão" */
+    #formTable {
+      background-color: #fdfdfd;
+    }
+    #formTable th:nth-child(5)::after {
+      content: "";
+      font-size: 0.85rem;
+      color: #777;
+    }
+    /* Cartões e blocos */
+    .card, .resultado-geral, .grupo-result, .item-result {
+      border-radius: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover, .grupo-result:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .resultado-geral {
+      padding: 25px;
+      background-color: #fafafa;
+      margin-bottom: 40px;
+      border: 1px solid #eaeaea;
+    }
+    .grupo-result {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .item-result {
+      padding: 12px;
+      border-left: 5px solid #ccc;
+      background-color: #fcfcfc;
+      margin-top: 10px;
+    }
+    /* Botões */
+    .btn {
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    /* Seção "Por Onde Começar" */
+    .por-onde-comecar { margin-bottom: 40px; }
+    .por-onde-comecar h3 { margin-bottom: 25px; font-weight: 500; }
+    .explicativo { font-size: 0.9em; color: #777; margin-bottom: 10px; }
+    .card .conteudo-lista { margin-bottom: 10px; }
+    /* Bloco do Método P.A.R.E. expansível */
+    .pare-info {
+      background-color: #fff7e6;
+      border: 1px solid #ffe5b4;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    .pare-info .card-header {
+      background-color: #ffe5b4;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .pare-info .card-header h5 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .pare-info .card-body {
+      padding: 16px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Indicador visual para grupos */
+    .grupo-indicador {
+      font-size: 1.2rem;
+      margin-left: 8px;
+    }
+    /* Detalhes por Grupo */
+    .detalhes-title { margin-top: 50px; }
+    /* Footer */
+    footer {
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #eaeaea;
+      padding: 15px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    /* Estilos para resultado principal */
+    .resultado-geral img { border-radius: 8px; }
+    .medias {
+      color: #777;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+    .resultado-principal h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .resultado-principal p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXNPB33F"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <!-- Banner do site -->
+  <div class="container-fluid p-0">
+    <img src="https://raw.githubusercontent.com/michellef03/alinhamente/main/Banner_PNG.png" alt="Banner do AlinhaMente" class="banner img-fluid">
+  </div>
+
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">AlinhaMente</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="sobre.html">Sobre o teste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="quemSouEu.html">Quem sou eu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="teste.html">Teste</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <!-- Cabeçalho -->
+    <h2 class="header-title text-center">Faça o teste AlinhaMente</h2>
+    <p class="header-subtitle text-center">
+      Basta preencher os campos abaixo e clicar em VER RESULTADOS. Para mais informações sobre como analisar os resultados, conheça a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a>.
+    </p>
+    
+    <!-- Box colapsável do lembrete -->
+    <div class="lembrete-card mb-4">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#lembreteCollapse" aria-expanded="false" aria-controls="lembreteCollapse">
+        <h5 class="mb-0">🧭 Antes de tudo, um lembrete importante <button class="btn btn-sm btn-outline-primary ms-3">Clique para ver mais</button></h5>
+      </div>
+      <div class="collapse" id="lembreteCollapse">
+        <div class="card-body">
+          Esse teste não é uma ferramenta científica, nem uma tentativa de te dizer o que fazer da sua vida. A vida é complexa — e o contexto de cada pessoa só ela mesma conhece. O que você vai ver aqui é um mapa simples, <strong>construído com base nas suas próprias percepções</strong>, pra te ajudar a refletir com mais clareza sobre onde sua energia tem ido — e se isso tá fazendo sentido pra você hoje.
+        </div>
+      </div>
+    </div>
+
+    <!-- Caixa do método P.A.R.E. -->
+    <div class="pare-metodo mb-4">
+      <p>🌱 Este teste faz parte do método <strong>P.A.R.E.</strong><br><br>
+         O AlinhaMente é a primeira etapa do meu método <strong>P.A.R.E.</strong> — um convite pra você Parar, Avaliar, Roteirizar e Estabilizar seus objetivos com mais clareza e intenção.<br><br>
+         Esse teste existe pra te ajudar a parar e olhar com honestidade pra sua vida hoje: o que é importante, como você se sente e onde sua energia tem ido. Ele não dá respostas prontas — mas oferece um <strong>mapa inicial</strong> pra te guiar nesse processo de reconexão com você mesmo.<br><br>
+         Se quiser seguir pro próximo passo, conheça a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a>.
+      </p>
+    </div>
+
+    <!-- Tabela de entrada -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <table id="formTable" class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th>Dimensão</th>
+              <th>Área</th>
+              <th>Importância</th>
+              <th>Satisfação</th>
+              <th>Tempo Investido</th>
+              <th>Estado atual</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="d-grid">
+          <button id="btnCalcular" class="btn btn-primary">Ver Resultados</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Área de resultados -->
+    <div id="resultados"></div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    © 2024 Longa História Curta — Criado por Michelle como parte do método P.A.R.E.<br>
+    Todos os direitos reservados. Este teste é uma ferramenta de autoconhecimento, não substitui diagnóstico profissional.
+  </footer>
+
+  <!-- Bootstrap Bundle (inclui Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Variáveis globais
+    const areas = [
+      { grupo: "Vínculos", itens: ["Rede de Apoio", "Relacionamento Afetivo"] },
+      { grupo: "Independência", itens: ["Finanças pessoais", "Confiança nas decisões"] },
+      { grupo: "Direção", itens: ["Ocupação principal", "Desenvolvimento de Habilidades"] },
+      { grupo: "Acolhimento", itens: ["Saúde Física", "Saúde Mental"] }
+    ];
+
+    const opcoes = `
+      <option value="">Escolha aqui</option>
+      <option value="1">1 - Nada</option>
+      <option value="2">2 - Quase Nada</option>
+      <option value="3">3 - Um pouco</option>
+      <option value="4">4 - Bastante</option>
+      <option value="5">5 - Muito mesmo</option>
+    `;
+
+    // Textos dos itens
+    const textos = {
+      "Rede de Apoio": {
+        "Equilibrado": "Rede de Apoio equilibrada.",
+        "Negligenciado": "Rede de Apoio importante, mas pouco investimento.",
+        "Baixo retorno": "Rede de Apoio com esforço alto e pouco retorno.",
+        "Conflito interno": "Rede de Apoio com tensão interna."
+      },
+      "Relacionamento Afetivo": {
+        "Equilibrado": "Relacionamento estável e satisfatório.",
+        "Negligenciado": "Relacionamento afetivo importante, porém negligenciado.",
+        "Baixo retorno": "Muito investimento, mas pouca reciprocidade.",
+        "Conflito interno": "Desalinhamento no relacionamento afetivo."
+      },
+      "Finanças pessoais": {
+        "Equilibrado": "Finanças em ordem e bem gerenciadas.",
+        "Negligenciado": "Finanças são importantes, mas têm sido deixadas de lado.",
+        "Baixo retorno": "Muito esforço financeiro, mas pouco retorno efetivo.",
+        "Conflito interno": "Conflito interno com relação ao dinheiro."
+      },
+      "Confiança nas decisões": {
+        "Equilibrado": "Você toma decisões com segurança.",
+        "Negligenciado": "Você valoriza a autonomia, mas tem se sentido inseguro.",
+        "Baixo retorno": "Você se esforça para decidir, mas não tem confiança no resultado.",
+        "Conflito interno": "Há tensão ao tomar decisões importantes."
+      },
+      "Ocupação principal": {
+        "Equilibrado": "Sua ocupação principal está alinhada às suas expectativas.",
+        "Negligenciado": "Você valoriza trabalho/estudo, mas não está investindo o suficiente.",
+        "Baixo retorno": "Dedicação alta, mas satisfação baixa.",
+        "Conflito interno": "Conflito entre o que você faz e o que realmente quer."
+      },
+      "Desenvolvimento de Habilidades": {
+        "Equilibrado": "Você cresce e aprende constantemente.",
+        "Negligenciado": "Você quer se desenvolver, mas pouco se dedica a isso.",
+        "Baixo retorno": "Você estuda/pratica bastante, mas não vê resultados.",
+        "Conflito interno": "Tensão entre seu potencial e suas ações."
+      },
+      "Saúde Física": {
+        "Equilibrado": "Cuidados com o corpo em dia.",
+        "Negligenciado": "O corpo é importante, mas tem sido negligenciado.",
+        "Baixo retorno": "Exercício com pouco retorno.",
+        "Conflito interno": "Tensão no cuidado físico."
+      },
+      "Saúde Mental": {
+        "Equilibrado": "Mente em equilíbrio e bem-estar.",
+        "Negligenciado": "A saúde mental é importante, mas tem sido deixada de lado.",
+        "Baixo retorno": "Esforço emocional sem melhora.",
+        "Conflito interno": "Conflitos emocionais persistem."
+      }
+    };
+
+    // ARQUÉTIPOS – baseados em diffVI (mV - mI) e diffDA (mD - mA)
+    const arquetipoTextos = {
+      "Conexão e ação": `<p>Você se sente mais nutrido pelos vínculos e pelas relações do que pela sua autonomia pessoal. Também se sente mais satisfeito com sua direção atual — como trabalho, projetos e metas — do que com o cuidado com o seu bem-estar. Pode ser que esteja em movimento, com boa rede ao redor, mas deixando o autocuidado um pouco de lado.<br>
+      Você tem garra e companhia. Só não esqueça que até o lobo mais forte precisa de pausa.</p>`,
+      "Conexão e pausa": `<p>Você se percebe mais satisfeito com suas relações e com o cuidado emocional que tem recebido — ou se permitido cultivar. Por outro lado, sente menos satisfação em relação à sua autonomia e ao seu momento de atuação prática, como trabalho, metas ou decisões pessoais. É como se as pausas, os vínculos e o acolhimento estivessem mais presentes do que o movimento. Pode ser um momento de introspecção — ou uma fase de recolhimento para se fortalecer.<br>
+      Você criou raízes afetivas e tem se escutado com carinho. Agora, como a coruja que desperta à noite, talvez seja hora de mover o que está parado.</p>`,
+      "Autonomia em movimento": `<p>Você demonstra maior satisfação com sua autonomia pessoal — sente que tem controle sobre suas decisões e recursos. Também se percebe mais alinhado com sua direção atual, como trabalho, metas e projetos. Por outro lado, vínculos afetivos e o cuidado consigo mesmo parecem estar em segundo plano. Essa configuração pode indicar um momento de foco e performance, mas não se esqueça de cuidar também do lado emocional.<br>
+      Como uma águia em voo: você enxerga longe e voa alto — só não esqueça de pousar e se cuidar de vez em quando.</p>`,
+      "Autonomia e recolhimento": `<p>Você demonstra maior satisfação com sua independência e com o cuidado que tem dado a si mesmo. No entanto, vínculos emocionais e conexões parecem estar mais distantes ou insatisfatórios neste momento. Essa combinação sugere introspecção e preservação.<br>
+      Como uma baleia em águas profundas: você se fortalece no silêncio — mas lembre-se que, de vez em quando, é preciso subir para respirar.</p>`
+    };
+
+    // Imagens dos ARQUÉTIPOS
+    const arquetipoImages = {
+      "Conexão e ação": "https://raw.githubusercontent.com/michellef03/alinhamente/main/LOBO.png",
+      "Conexão e pausa": "https://raw.githubusercontent.com/michellef03/alinhamente/main/CORUJA.PNG",
+      "Autonomia em movimento": "https://raw.githubusercontent.com/michellef03/alinhamente/main/AGUIA.png",
+      "Autonomia e recolhimento": "https://raw.githubusercontent.com/michellef03/alinhamente/main/BALEIA.PNG"
+    };
+
+    // SUBARQUÉTIPOS – 7 subarquétipos
+    const subArquetipoTextos = {
+      "Falta de Autonomia e Direção": `<p>Você sente que não está no controle das suas escolhas — e também não tem clareza sobre pra onde está indo. Isso gera frustração, especialmente porque essas áreas importam para você. Talvez o primeiro passo não seja decidir tudo, mas recuperar pequenos espaços de escolha.</p>`,
+      "Falta de Conexão Social": `<p>Você sinalizou que suas relações de apoio são importantes, mas não têm trazido a satisfação necessária. Esse vazio pode impactar outras áreas. Buscar apoio ou criar novos espaços de troca pode fazer a diferença.</p>`,
+      "Em transição de prioridades": `<p>Você está vivendo um momento em que duas ou mais dimensões apresentam baixa satisfação (≤2) com alta importância (≥4). Isso indica que suas prioridades estão mudando e é hora de reavaliar onde investir sua energia.</p>`,
+      "Contradições Ativas": `<p>Suas respostas mostram contrastes fortes dentro da mesma área da vida — como se uma parte estivesse funcionando bem e outra estivesse em conflito. Essas tensões internas podem gerar confusão, cansaço ou indecisão. Reorganizar suas prioridades pode trazer mais paz.</p>`,
+      "Produtividade Vazia": `<p>Você tem dedicado bastante tempo a áreas importantes, mas sua satisfação é baixa (satisfação ≤2). Isso indica um descompasso entre esforço e retorno. Talvez seja hora de redirecionar sua energia ou ajustar suas expectativas.</p>`,
+      "Intenção sem Ação": `<p>Você identificou áreas importantes para você, mas que têm recebido pouca atenção prática (tempo investido ≤2). Existe intenção, mas ela ainda não virou movimento. Comece com pequenos passos.</p>`,
+      "✨Intenção em Ação✨": `<p>Você apresenta uma média de satisfação de pelo menos 4 em todas as dimensões, indicando que suas escolhas estão alinhadas com o que importa. Mantenha esse ritmo com leveza e consistência.</p>`
+    };
+
+    // Emojis para status dos itens
+    const statusEmojis = {
+      "Negligenciado": "⚠️",
+      "Baixo retorno": "🥵",
+      "Conflito interno": "🤔",
+      "Equilibrado": "💚"
+    };
+
+    // Indicador visual para grupos
+    const grupoIndicadores = {
+      "Equilibrado": "💚",
+      "Instável": "🟡",
+      "Desequilíbrio": "🔴"
+    };
+
+    // Função para criar a tabela de entrada
+    function criarForm() {
+      const tbody = document.querySelector('#formTable tbody');
+      let linhas = '';
+      areas.forEach(area => {
+        area.itens.forEach((item, index) => {
+          linhas += `<tr data-area="${item}">`;
+          if (index === 0) { 
+            linhas += `<td rowspan="${area.itens.length}">${area.grupo}</td>`;
+          }
+          linhas += `
+            <td>${item}</td>
+            <td><select class="form-select">${opcoes}</select></td>
+            <td><select class="form-select">${opcoes}</select></td>
+            <td><select class="form-select">${opcoes}</select></td>
+            <td class="status"></td>
+          </tr>`;
+        });
+      });
+      tbody.innerHTML = linhas;
+    }
+
+    // Função para verificar se todos os selects foram preenchidos
+    function allFieldsFilled() {
+      const rows = document.querySelectorAll('#formTable tbody tr');
+      let filled = true;
+      rows.forEach(row => {
+        row.querySelectorAll('select').forEach(select => {
+          if (!select.value) filled = false;
+        });
+      });
+      return filled;
+    }
+
+    // Determina o status de cada item
+    function getItemStatus(imp, sat, temp) {
+      if (imp - temp >= 2) return "Negligenciado";
+      if (temp - sat >= 2) return "Baixo retorno";
+      if (imp - sat >= 2) return "Conflito interno";
+      return "Equilibrado";
+    }
+
+    // Calcula o status global do grupo
+    function getStatusGrupo(itensDoGrupo) {
+      const totalEquilibrados = itensDoGrupo.filter(i => i.status === "Equilibrado").length;
+      if (totalEquilibrados === itensDoGrupo.length) return "Equilibrado";
+      if (totalEquilibrados > 0) return "Instável";
+      return "Desequilíbrio";
+    }
+
+    // Retorna a média de satisfação de um grupo
+    function getMediaSatisfacao(itensDoGrupo) {
+      const sats = itensDoGrupo.map(i => i.sat);
+      return sats.reduce((a, b) => a + b, 0) / sats.length;
+    }
+
+    // Função para calcular o ARQUÉTIPO com base em diffVI e diffDA
+    function getArquetipo(diffVI, diffDA) {
+      if (diffVI > 0 && diffDA > 0) return "Conexão e ação";
+      if (diffVI > 0 && diffDA < 0) return "Conexão e pausa";
+      if (diffVI < 0 && diffDA > 0) return "Autonomia em movimento";
+      return "Autonomia e recolhimento";
+    }
+
+    // Função para calcular os SUBARQUÉTIPOS e retornar um array com os rótulos
+    function calcularSubArquetipo() {
+      let matched = [];
+      const rows = document.querySelectorAll('#formTable tbody tr');
+      // Agrupa os dados por dimensão
+      let satDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+      let impDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+      let tempDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+      rows.forEach(row => {
+        const areaName = row.getAttribute('data-area');
+        let macro = "";
+        areas.forEach(a => { if (a.itens.includes(areaName)) macro = a.grupo; });
+        const selects = row.querySelectorAll('select');
+        const imp = Number(selects[0].value);
+        const sat = Number(selects[1].value);
+        const temp = Number(selects[2].value);
+        satDim[macro].push(sat);
+        impDim[macro].push(imp);
+        tempDim[macro].push(temp);
+      });
+      // Função auxiliar para média
+      function media(arr) {
+        return arr.reduce((acc, n) => acc + n, 0) / arr.length;
+      }
+      let mV = media(satDim["Vínculos"]);
+      let mI = media(satDim["Independência"]);
+      let mD = media(satDim["Direção"]);
+      let mA = media(satDim["Acolhimento"]);
+
+      // Função auxiliar para média de importância
+      function mediaImp(dim) { 
+        return media(impDim[dim]);
+      }
+
+      // 7. Intenção em Ação: média de satisfação em todas as dimensões ≥ 4
+      if (mV >= 4 && mI >= 4 && mD >= 4 && mA >= 4) {
+        matched.push("Intenção em Ação");
+      }
+      // 1. Falta de Autonomia e Direção: Independência ≤ 2 e Direção ≤ 2, com média de importância ≥ 4
+      if (mI <= 2 && mD <= 2 && mediaImp("Independência") >= 4 && mediaImp("Direção") >= 4) {
+        matched.push("Falta de Autonomia e Direção");
+      }
+      // 2. Falta de Conexão Social: Apenas Vínculos apresenta sat ≤ 2 e média imp ≥ 4, enquanto as outras têm sat > 2
+      if (mV <= 2 && mediaImp("Vínculos") >= 4 && mI > 2 && mD > 2 && mA > 2) {
+        matched.push("Falta de Conexão Social");
+      }
+      // 3. Em transição de prioridades: 2 ou mais dimensões com sat ≤ 2 e média imp ≥ 4
+      let contDim = 0;
+      [["Vínculos", mV], ["Independência", mI], ["Direção", mD], ["Acolhimento", mA]].forEach(pair => {
+         let [dim, satM] = pair;
+         if (satM <= 2 && mediaImp(dim) >= 4) contDim++;
+      });
+      if (contDim >= 2) {
+         matched.push("Em transição de prioridades");
+      }
+      // 4. Contradições Ativas: diferença entre o valor máximo e mínimo das respostas em alguma dimensão ≥ 3
+      for (let macro in satDim) {
+         if (satDim[macro].length > 1) {
+             let minVal = Math.min(...satDim[macro]);
+             let maxVal = Math.max(...satDim[macro]);
+             if (maxVal - minVal >= 3) {
+               matched.push("Contradições Ativas");
+               break;
+             }
+         }
+      }
+      // 5. Produtividade Vazia: em 2 ou mais áreas, Tempo Investido ≥ 4 e Satisfação ≤ 2
+      let pvCount = 0;
+      rows.forEach(row => {
+         const selects = row.querySelectorAll('select');
+         const sat = Number(selects[1].value);
+         const temp = Number(selects[2].value);
+         if (temp >= 4 && sat <= 2) pvCount++;
+      });
+      if (pvCount >= 2) {
+         matched.push("Produtividade Vazia");
+      }
+      // 6. Intenção sem Ação: em 2 ou mais áreas, Importância ≥ 4 e Tempo Investido ≤ 2
+      let isaCount = 0;
+      rows.forEach(row => {
+         const selects = row.querySelectorAll('select');
+         const imp = Number(selects[0].value);
+         const temp = Number(selects[2].value);
+         if (imp >= 4 && temp <= 2) isaCount++;
+      });
+      if (isaCount >= 2) {
+         matched.push("Intenção sem Ação");
+      }
+      return matched.length > 0 ? matched : ["Nenhum subtipo"];
+    }
+
+    // Função para renderizar lista (usada na seção "Por onde começar")
+    function renderLista(arr) {
+      if (!arr || arr.length === 0) return `<p>Sem áreas aqui</p>`;
+      return `<ul>${arr.map(a => `<li>${a}</li>`).join("")}</ul>`;
+    }
+
+    // Função para calcular os resultados por grupo e preparar o resumo para "Por onde começar"
+    function calculateGroupResults() {
+      const resultadosPorGrupo = {};
+      const resumo = { baixoRetorno: [], negligenciado: [], manter: [], conflito: [] };
+      areas.forEach(area => {
+        const itensDoGrupo = [];
+        area.itens.forEach(item => {
+          const row = document.querySelector(`tr[data-area="${item}"]`);
+          const selects = row.querySelectorAll('select');
+          const imp = Number(selects[0].value);
+          const sat = Number(selects[1].value);
+          const temp = Number(selects[2].value);
+          const status = getItemStatus(imp, sat, temp);
+          row.querySelector('.status').innerHTML = `${statusEmojis[status]} ${status}`;
+          itensDoGrupo.push({ item, status, sat });
+          switch(status) {
+            case "Baixo retorno": resumo.baixoRetorno.push(item); break;
+            case "Negligenciado": resumo.negligenciado.push(item); break;
+            case "Equilibrado": resumo.manter.push(item); break;
+            case "Conflito interno": resumo.conflito.push(item); break;
+          }
+        });
+        const statusGrupo = getStatusGrupo(itensDoGrupo);
+        const mediaSatisfacaoGrupo = getMediaSatisfacao(itensDoGrupo);
+        resultadosPorGrupo[area.grupo] = { itens: itensDoGrupo, statusGrupo, media: mediaSatisfacaoGrupo };
+      });
+      return { resultadosPorGrupo, resumo };
+    }
+
+    // Função para construir o HTML final dos resultados
+    function buildFinalHtml(results, mV, mI, mD, mA, arquetipo, textoArquetipo, arqImg, subArquetipos, textoSubMap) {
+      // Constrói a lista de subarquétipos com seus textos explicativos
+      let subHtml = "";
+      subArquetipos.forEach(key => {
+        // Se não houver texto para o subtipo (por exemplo, "Nenhum subtipo") não exibe
+        if(key === "Nenhum subtipo") {
+          subHtml += `<p>${key}</p>`;
+        } else {
+          subHtml += `<p><strong>${key}</strong><br>${textoSubMap[key]}</p>`;
+        }
+      });
+
+      let htmlContent = `
+        <div class="resultado-geral">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="${arqImg}" class="img-fluid" alt="${arquetipo}">
+            </div>
+            <div class="col-md-8 resultado-principal text-center">
+              <h2>${arquetipo}</h2>
+              ${textoArquetipo}
+              <div class="medias">(Médias: Vínculos=${mV.toFixed(1)}, Independência=${mI.toFixed(1)}, Direção=${mD.toFixed(1)}, Acolhimento=${mA.toFixed(1)})</div>
+              <div class="d-grid gap-2 mt-3">
+                <button id="shareBtn" class="btn btn-secondary">Compartilhar seu resultado</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="resultado-geral">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2>O que mais percebemos?</h2>
+              ${subHtml}
+            </div>
+          </div>
+        </div>
+        
+        <div class="por-onde-comecar mb-5">
+          <h3>POR ONDE COMEÇAR?</h3>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="card p-3 h-100">
+                <h5>Etapa 1: Recuperar energia (Baixo retorno)</h5>
+                <div id="etapa1">${renderLista(results.resumo.baixoRetorno)}</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card p-3 h-100">
+                <h5>Etapa 2: Redirecionar intenção (Negligenciadas)</h5>
+                <div id="etapa2">${renderLista(results.resumo.negligenciado)}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card p-3 h-100">
+                <h5>Manter! (Áreas Equilibradas)</h5>
+                <div class="conteudo-lista" id="manter">${renderLista(results.resumo.manter)}</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card p-3 h-100">
+                <h5>Áreas em conflito (Importantes, mas com baixa satisfação)</h5>
+                <div class="conteudo-lista" id="conflito">${renderLista(results.resumo.conflito)}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pare-info mb-5">
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#pareCollapse" aria-expanded="false" aria-controls="pareCollapse">
+              <h5 class="mb-0">🌱 Isso faz parte do Método P.A.R.E. Entenda o método completo aqui</h5>
+              <button class="btn btn-sm btn-outline-primary">Ver detalhes</button>
+            </div>
+            <div class="collapse" id="pareCollapse">
+              <div class="card-body">
+                <p>Criado por mim, o método P.A.R.E. é um convite para viver com mais intenção e menos no automático. É uma forma de tomar decisões mais conscientes, alinhadas com o que importa para você.</p>
+                <p><strong>Cada letra representa um passo:</strong></p>
+                <ul>
+                  <li>🅿️ Parar para pensar — sair do piloto automático e ganhar clareza sobre sua realidade</li>
+                  <li>🅰️ Avaliar com honestidade — entender onde você está e o que te falta</li>
+                  <li>🆁 Roteirizar com intenção — criar um plano viável com base nos seus recursos</li>
+                  <li>🅴 Estabilizar com flexibilidade — manter o que funciona e adaptar o que não funcionar</li>
+                </ul>
+                <p>Esse teste é um apoio para começar a olhar com honestidade para sua vida.</p>
+                <p><strong>✨ E depois?</strong></p>
+<p>Após identificar as áreas que merecem mais cuidado, te convido a acompanhar a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a>.</p>              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="detalhes-title">Detalhes por Grupo</h3>
+      `;
+      let gruposHTML = "";
+      let index = 0;
+      for (const grupo in results.resultadosPorGrupo) {
+        const g = results.resultadosPorGrupo[grupo];
+        const collapseId = `collapseGroup${index++}`;
+        const indicador = grupoIndicadores[g.statusGrupo] || "";
+        gruposHTML += `
+          <div class="grupo-result mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">${grupo} - ${g.statusGrupo} <span class="grupo-indicador">${indicador}</span></h5>
+              <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}">
+                Ver detalhes
+              </button>
+            </div>
+            <div class="collapse mt-2" id="${collapseId}">
+              <p><strong>Média de Satisfação:</strong> ${g.media.toFixed(1)}</p>
+        `;
+        g.itens.forEach(i => {
+          gruposHTML += `
+            <div class="item-result">
+              <strong>${i.item} - ${i.status}</strong><br>
+              <em>${textos[i.item] ? textos[i.item][i.status] || "" : ""}</em>
+            </div>
+          `;
+        });
+        gruposHTML += `</div></div>`;
+      }
+      return htmlContent + gruposHTML;
+    }
+
+    // Função para compartilhar resultado
+    function shareResult(arquetipo) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Resultado do Teste de Alinhamento',
+          text: 'Meu resultado: ' + arquetipo,
+          url: window.location.href
+        }).catch(err => console.error(err));
+      } else {
+        alert('Compartilhamento não suportado neste dispositivo.');
+      }
+    }
+
+    // Função principal para calcular e exibir os resultados
+    function calcularResultados() {
+      if (!allFieldsFilled()) {
+        document.getElementById('resultados').innerHTML = '<div class="alert alert-warning">Preencher o teste acima para ver o resultado</div>';
+        return;
+      }
+      const resultadosPorGrupo = {};
+      const resumo = { baixoRetorno: [], negligenciado: [], manter: [], conflito: [] };
+      areas.forEach(area => {
+        const itensDoGrupo = [];
+        area.itens.forEach(item => {
+          const row = document.querySelector(`tr[data-area="${item}"]`);
+          const selects = row.querySelectorAll('select');
+          const imp = Number(selects[0].value);
+          const sat = Number(selects[1].value);
+          const temp = Number(selects[2].value);
+          const status = getItemStatus(imp, sat, temp);
+          row.querySelector('.status').innerHTML = `${statusEmojis[status]} ${status}`;
+          itensDoGrupo.push({ item, status, sat });
+          switch(status) {
+            case "Baixo retorno": resumo.baixoRetorno.push(item); break;
+            case "Negligenciado": resumo.negligenciado.push(item); break;
+            case "Equilibrado": resumo.manter.push(item); break;
+            case "Conflito interno": resumo.conflito.push(item); break;
+          }
+        });
+        const statusGrupo = getStatusGrupo(itensDoGrupo);
+        const mediaSatisfacaoGrupo = getMediaSatisfacao(itensDoGrupo);
+        resultadosPorGrupo[area.grupo] = { itens: itensDoGrupo, statusGrupo, media: mediaSatisfacaoGrupo };
+      });
+
+      // Cálculo das médias globais
+      const mV = resultadosPorGrupo["Vínculos"].media || 0;
+      const mI = resultadosPorGrupo["Independência"].media || 0;
+      const mD = resultadosPorGrupo["Direção"].media || 0;
+      const mA = resultadosPorGrupo["Acolhimento"].media || 0;
+      const diffVI = mV - mI;
+      const diffDA = mD - mA;
+      const arquetipo = getArquetipo(diffVI, diffDA);
+      const textoArquetipo = arquetipoTextos[arquetipo] || "";
+      const arqImg = arquetipoImages[arquetipo] || "";
+      const subArquetipos = calcularSubArquetipo(); // Agora retorna um array
+      // Cria um objeto com os textos dos subarquétipos para facilitar o acesso
+      const textoSubMap = subArquetipoTextos;
+      const finalHtml = buildFinalHtml({ resultadosPorGrupo, resumo }, mV, mI, mD, mA, arquetipo, textoArquetipo, arqImg, subArquetipos, textoSubMap);
+      document.getElementById('resultados').innerHTML = finalHtml;
+
+      const shareBtn = document.getElementById('shareBtn');
+      if (shareBtn) { shareBtn.addEventListener('click', () => shareResult(arquetipo)); }
+    }
+
+    document.getElementById('btnCalcular').addEventListener('click', calcularResultados);
+    criarForm();
+  </script>
+</body>
+</html>
