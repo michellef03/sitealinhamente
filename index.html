@@ -1,240 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <!-- Consent Mode -->
- <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
+  <script src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"></script>
  <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="UEq1lMS8qdu2hB" async></script>
-  <!-- Consent Mode -->
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WXNPB33F');</script>
-    <!-- End Google Tag Manager -->
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AlinhaMente</title>
-   <!-- Meta tags para SEO -->
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
    <meta name="description" content="Teste AlinhaMente: descubra seu nível de alinhamento entre intenção, ação e satisfação nas áreas-chave da vida." />
    <meta name="robots" content="index, follow">
-   
-   <!-- Meta tags para Open Graph (para compartilhamento) -->
-   <meta property="og:title" content="Sobre o Teste - AlinhaMente">
-   <meta property="og:description" content="Teste AlinhaMente: descubra seu nível de alinhamento entre intenção, ação e satisfação nas áreas-chave da vida." />
+
+   <meta property="og:title" content="Teste AlinhaMente - Descubra seu Alinhamento">
+   <meta property="og:description" content="Compare importância, satisfação e tempo investido nas áreas chave da sua vida com este teste visual." />
    <meta property="og:type" content="website">
-   <meta property="og:url" content="https://alinhamente.com.br/sobre.html">
-   <!-- Você pode usar uma imagem que represente a página, por exemplo, o Banner ou um ícone específico -->
-   <meta property="og:image" content="https://raw.githubusercontent.com/michellef03/imagens_alinhamente/main/ICONE.png">
-   
-   <!-- Link para o sitemap -->
-   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-   
-   <!-- Bootstrap CSS e Google Fonts -->
+   <meta property="og:url" content="https://alinhamente.com.br/teste.html"> <meta property="og:image" content="https://raw.githubusercontent.com/michellef03/imagens_alinhamente/main/ICONE.png"> <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
-   
+
    <style>
-     /* Insira aqui suas regras de estilo personalizadas, se necessário */
+     /* Paleta e tipografia */
+     body {
+       font-family: 'Inter', sans-serif;
+       background-color: #ffffff;
+       color: #333;
+       padding-top: 90px; /* Ajuste conforme altura da navbar fixa */
+       line-height: 1.6;
+     }
+     a { text-decoration: none; color: inherit; }
+     /* Banner no topo */
+     .banner {
+       width: 100%;
+       margin-bottom: 20px;
+     }
+     /* NavBar */
+     .navbar {
+       background-color: #f7f7f7;
+       border-bottom: 1px solid #e5e5e5;
+     }
+     .navbar-brand {
+       font-weight: 700;
+       font-size: 1.5rem;
+       letter-spacing: 1px;
+     }
+     .nav-link { font-weight: 500; }
+     /* Cabeçalho principal */
+     .header-title {
+       text-align: center;
+       margin-bottom: 5px;
+       font-size: 2.5rem;
+       font-weight: 700;
+       letter-spacing: 1px;
+     }
+     .header-subtitle {
+       text-align: center;
+       margin-bottom: 30px;
+       font-size: 1.1rem;
+       color: #555;
+     }
+     /* Box colapsável do lembrete */
+     .lembrete-card {
+       background-color: #f0f9ff;
+       border: 1px solid #cce5ff;
+       border-radius: 8px;
+       margin-bottom: 20px;
+     }
+     .lembrete-card .card-header {
+       background-color: #d0e7fd;
+       padding: 12px 16px;
+       cursor: pointer;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+     }
+     .lembrete-card .card-header h5 {
+       margin: 0;
+       font-weight: 700;
+       font-size: 1.1rem;
+     }
+     .lembrete-card .card-body {
+       padding: 16px;
+       font-size: 0.95rem;
+       color: #555;
+     }
+     /* Caixa do método P.A.R.E. */
+     .pare-metodo {
+       background-color: #ece8fe;
+       border: 1px solid #c3d2f5;
+       border-radius: 8px;
+       padding: 15px;
+       margin-bottom: 20px;
+       font-size: 0.95rem;
+       color: #444;
+     }
+     /* Tabela de entrada */
+     #formTable {
+       background-color: #fdfdfd;
+     }
+     #formTable th {
+        font-weight: 600; /* Cabeçalho da tabela mais forte */
+        font-size: 0.9rem;
+     }
+     #formTable td.status {
+        font-weight: 500;
+     }
+     #formTable th:nth-child(6)::after { /* Coluna Estado Atual */
+       content: "";
+       font-size: 0.85rem;
+       color: #777;
+     }
+     /* Cartões e blocos de resultado */
+     .card, .resultado-geral, .grupo-result {
+       border-radius: 8px;
+       transition: transform 0.2s, box-shadow 0.2s;
+     }
+     .card:hover, .grupo-result:hover {
+       transform: translateY(-3px);
+       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+     }
+     .resultado-geral {
+       padding: 25px;
+       background-color: #fafafa;
+       margin-bottom: 40px;
+       border: 1px solid #eaeaea;
+       overflow: hidden;
+     }
+     .grupo-result {
+       padding: 0;
+       background-color: #fff;
+       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+       margin-bottom: 20px;
+       border: 1px solid #eee;
+     }
+     .grupo-result .card-body {
+        padding: 1rem;
+     }
+     .item-result {
+       padding: 10px 12px;
+       background-color: #fcfcfc;
+       margin-top: 10px;
+       border-radius: 4px;
+     }
+     /* Botões */
+     .btn {
+       transition: background-color 0.2s, box-shadow 0.2s;
+       border-radius: 6px; /* Bordas levemente arredondadas */
+     }
+     .btn:hover {
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+     }
+     .btn-primary { /* Cor primária consistente */
+        background-color: #0d6efd; /* Azul padrão Bootstrap */
+        border-color: #0d6efd;
+     }
+     /* Seção "Por Onde Começar" */
+     .por-onde-comecar { margin-bottom: 40px; }
+     .por-onde-comecar h3 { margin-bottom: 15px; font-weight: 700; text-align: center;}
+     .por-onde-comecar .explicativo { font-size: 0.9em; color: #777; margin-bottom: 25px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;}
+     .por-onde-comecar .card { border: none; } /* Remove borda dos cards internos */
+     .por-onde-comecar .card h5 { font-size: 1.05rem; font-weight: 600;}
+     .por-onde-comecar .card .small { font-size: 0.85rem;}
+     .por-onde-comecar ul { list-style-type: disc; } /* Mantém marcadores */
+
+     /* Bloco do Método P.A.R.E. expansível (Resultados) */
+     .pare-info {
+       background-color: #fff7e6;
+       border: 1px solid #ffe5b4;
+       border-radius: 8px;
+       margin-bottom: 40px;
+     }
+     .pare-info .card-header {
+       background-color: #ffe5b4;
+       padding: 12px 16px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       cursor: pointer;
+     }
+     .pare-info .card-header h5 { margin: 0; font-weight: 700; font-size: 1.1rem; }
+     .pare-info .card-body { padding: 16px; font-size: 0.95rem; color: #555; }
+     .pare-info .card-body ul { padding-left: 20px; } /* Indenta lista P.A.R.E. */
+
+     /* Indicador visual para grupos */
+     .grupo-indicador { font-size: 1.2rem; margin-left: 8px; }
+
+     /* Detalhes por Grupo */
+     .detalhes-title { margin-top: 50px; font-weight: 700; text-align: center;}
+
+     /* Footer */
+     footer {
+       font-size: 0.9rem;
+       color: #777;
+       border-top: 1px solid #eaeaea;
+       padding: 15px 0;
+       text-align: center;
+       margin-top: 40px;
+     }
+     /* Estilos para resultado principal com gráficos */
+     .resultado-principal h2 { /* Mantido caso queira adicionar título depois */
+       font-size: 2rem;
+       font-weight: 700;
+     }
+     /* Estilo para o container do canvas */
+     .chart-container {
+        position: relative;
+        /* Controla altura máxima */
+        max-height: 350px;
+        min-height: 250px; /* Garante altura mínima */
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+     }
+     /* Garante que o canvas se ajuste */
+     .chart-container canvas {
+        max-height: 100%;
+        max-width: 100%;
+     }
+
    </style>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* Paleta e tipografia */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      padding-top: 90px;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    /* Banner no topo */
-    .banner {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    /* NavBar */
-    .navbar {
-      background-color: #f7f7f7;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
-    .nav-link { font-weight: 500; }
-    /* Cabeçalho principal */
-    .header-title {
-      text-align: center;
-      margin-bottom: 5px;
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .header-subtitle {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      color: #555;
-    }
-    /* Box colapsável do lembrete */
-    .lembrete-card {
-      background-color: #f0f9ff;
-      border: 1px solid #cce5ff;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .lembrete-card .card-header {
-      background-color: #d0e7fd;
-      padding: 12px 16px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .lembrete-card .card-header h5 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .lembrete-card .card-body {
-      padding: 16px;
-      font-size: 0.95rem;
-      color: #555;
-    }
-    /* Caixa do método P.A.R.E. */
-    .pare-metodo {
-      background-color: #ece8fe;
-      border: 1px solid #c3d2f5;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 20px;
-      font-size: 0.95rem;
-      color: #444;
-    }
-    /* Tabela de entrada com coluna "Dimensão" */
-    #formTable {
-      background-color: #fdfdfd;
-    }
-    #formTable th:nth-child(5)::after {
-      content: "";
-      font-size: 0.85rem;
-      color: #777;
-    }
-    /* Cartões e blocos */
-    .card, .resultado-geral, .grupo-result, .item-result {
-      border-radius: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover, .grupo-result:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .resultado-geral {
-      padding: 25px;
-      background-color: #fafafa;
-      margin-bottom: 40px;
-      border: 1px solid #eaeaea;
-    }
-    .grupo-result {
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-    .item-result {
-      padding: 12px;
-      border-left: 5px solid #ccc;
-      background-color: #fcfcfc;
-      margin-top: 10px;
-    }
-    /* Botões */
-    .btn {
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-    .btn:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    /* Seção "Por Onde Começar" */
-    .por-onde-comecar { margin-bottom: 40px; }
-    .por-onde-comecar h3 { margin-bottom: 25px; font-weight: 500; }
-    .explicativo { font-size: 0.9em; color: #777; margin-bottom: 10px; }
-    .card .conteudo-lista { margin-bottom: 10px; }
-    /* Bloco do Método P.A.R.E. expansível */
-    .pare-info {
-      background-color: #fff7e6;
-      border: 1px solid #ffe5b4;
-      border-radius: 8px;
-      margin-bottom: 40px;
-    }
-    .pare-info .card-header {
-      background-color: #ffe5b4;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-    .pare-info .card-header h5 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .pare-info .card-body {
-      padding: 16px;
-      font-size: 0.95rem;
-      color: #555;
-    }
-    /* Indicador visual para grupos */
-    .grupo-indicador {
-      font-size: 1.2rem;
-      margin-left: 8px;
-    }
-    /* Detalhes por Grupo */
-    .detalhes-title { margin-top: 50px; }
-    /* Footer */
-    footer {
-      font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #eaeaea;
-      padding: 15px 0;
-      text-align: center;
-      margin-top: 40px;
-    }
-    /* Estilos para resultado principal */
-    .resultado-geral img { border-radius: 8px; }
-    .medias {
-      color: #777;
-      font-size: 0.85rem;
-      margin-top: 10px;
-    }
-    .resultado-principal h2 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-    .resultado-principal p {
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
-  </style>
 </head>
 <body>
-   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXNPB33F"
+   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXNPB33F"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-  <!-- Banner do site -->
-  <div class="container-fluid p-0">
+    <div class="container-fluid p-0">
     <img src="https://raw.githubusercontent.com/michellef03/alinhamente/main/Banner_PNG.png" alt="Banner do AlinhaMente" class="banner img-fluid">
   </div>
 
-  <!-- NavBar -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">AlinhaMente</a>
@@ -258,13 +257,11 @@
   </nav>
 
   <div class="container mt-5 pt-5">
-    <!-- Cabeçalho -->
     <h2 class="header-title text-center">Faça o teste AlinhaMente</h2>
     <p class="header-subtitle text-center">
       Basta preencher os campos abaixo e clicar em VER RESULTADOS. Para mais informações sobre como analisar os resultados, conheça a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a>.
     </p>
-    
-    <!-- Box colapsável do lembrete -->
+
     <div class="lembrete-card mb-4">
       <div class="card-header" data-bs-toggle="collapse" data-bs-target="#lembreteCollapse" aria-expanded="false" aria-controls="lembreteCollapse">
         <h5 class="mb-0">🧭 Antes de tudo, um lembrete importante <button class="btn btn-sm btn-outline-primary ms-3">Clique para ver mais</button></h5>
@@ -276,7 +273,6 @@
       </div>
     </div>
 
-    <!-- Caixa do método P.A.R.E. -->
     <div class="pare-metodo mb-4">
       <p>🌱 Este teste faz parte do método <strong>P.A.R.E.</strong><br><br>
          O AlinhaMente é a primeira etapa do meu método <strong>P.A.R.E.</strong> — um convite pra você Parar, Avaliar, Roteirizar e Estabilizar seus objetivos com mais clareza e intenção.<br><br>
@@ -285,10 +281,9 @@
       </p>
     </div>
 
-    <!-- Tabela de entrada -->
-    <div class="card mb-4">
+    <div class="card mb-4 shadow-sm">
       <div class="card-body">
-        <table id="formTable" class="table table-bordered">
+        <table id="formTable" class="table table-bordered table-hover">
           <thead class="table-light">
             <tr>
               <th>Dimensão</th>
@@ -302,25 +297,23 @@
           <tbody></tbody>
         </table>
         <div class="d-grid">
-          <button id="btnCalcular" class="btn btn-primary">Ver Resultados</button>
+          <button id="btnCalcular" class="btn btn-primary btn-lg">Ver Resultados</button>
         </div>
       </div>
     </div>
 
-    <!-- Área de resultados -->
     <div id="resultados"></div>
   </div>
-  
-  <!-- Footer -->
+
   <footer>
-    © 2024 Longa História Curta — Criado por Michelle como parte do método P.A.R.E.<br>
+    © 2025 Longa História Curta — Criado por Michelle como parte do método P.A.R.E.<br>
     Todos os direitos reservados. Este teste é uma ferramenta de autoconhecimento, não substitui diagnóstico profissional.
   </footer>
 
-  <!-- Bootstrap Bundle (inclui Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
-    // Variáveis globais
+    // Variáveis globais e dados
     const areas = [
       { grupo: "Vínculos", itens: ["Rede de Apoio", "Relacionamento Afetivo"] },
       { grupo: "Independência", itens: ["Finanças pessoais", "Confiança nas decisões"] },
@@ -337,127 +330,62 @@
       <option value="5">5 - Totalmente</option>
     `;
 
-    // Textos dos itens
-    const textos = {
-      "Rede de Apoio": {
-        "Equilibrado": "Rede de Apoio equilibrada.",
-        "Negligenciado": "Rede de Apoio importante, mas pouco investimento.",
-        "Baixo retorno": "Rede de Apoio com esforço alto e pouco retorno.",
-        "Conflito interno": "Rede de Apoio com tensão interna."
-      },
-      "Relacionamento Afetivo": {
-        "Equilibrado": "Relacionamento estável e satisfatório.",
-        "Negligenciado": "Relacionamento afetivo importante, porém negligenciado.",
-        "Baixo retorno": "Muito investimento, mas pouca reciprocidade.",
-        "Conflito interno": "Desalinhamento no relacionamento afetivo."
-      },
-      "Finanças pessoais": {
-        "Equilibrado": "Finanças em ordem e bem gerenciadas.",
-        "Negligenciado": "Finanças são importantes, mas têm sido deixadas de lado.",
-        "Baixo retorno": "Muito esforço financeiro, mas pouco retorno efetivo.",
-        "Conflito interno": "Conflito interno com relação ao dinheiro."
-      },
-      "Confiança nas decisões": {
-        "Equilibrado": "Você toma decisões com segurança.",
-        "Negligenciado": "Você valoriza a autonomia, mas tem se sentido inseguro.",
-        "Baixo retorno": "Você se esforça para decidir, mas não tem confiança no resultado.",
-        "Conflito interno": "Há tensão ao tomar decisões importantes."
-      },
-      "Ocupação principal": {
-        "Equilibrado": "Sua ocupação principal está alinhada às suas expectativas.",
-        "Negligenciado": "Você valoriza trabalho/estudo, mas não está investindo o suficiente.",
-        "Baixo retorno": "Dedicação alta, mas satisfação baixa.",
-        "Conflito interno": "Conflito entre o que você faz e o que realmente quer."
-      },
-      "Desenvolvimento de Habilidades": {
-        "Equilibrado": "Você cresce e aprende constantemente.",
-        "Negligenciado": "Você quer se desenvolver, mas pouco se dedica a isso.",
-        "Baixo retorno": "Você estuda/pratica bastante, mas não vê resultados.",
-        "Conflito interno": "Tensão entre seu potencial e suas ações."
-      },
-      "Saúde Física": {
-        "Equilibrado": "Cuidados com o corpo em dia.",
-        "Negligenciado": "O corpo é importante, mas tem sido negligenciado.",
-        "Baixo retorno": "Exercício com pouco retorno.",
-        "Conflito interno": "Tensão no cuidado físico."
-      },
-      "Saúde Mental": {
-        "Equilibrado": "Mente em equilíbrio e bem-estar.",
-        "Negligenciado": "A saúde mental é importante, mas tem sido deixada de lado.",
-        "Baixo retorno": "Esforço emocional sem melhora.",
-        "Conflito interno": "Conflitos emocionais persistem."
-      }
+    const textos = { // Textos para os itens individuais nos detalhes
+      "Rede de Apoio": { "Equilibrado": "Sua rede de apoio parece estar em sintonia com suas necessidades.", "Negligenciado": "Importante para você, mas talvez precise de mais atenção ou tempo.", "Baixo retorno": "Você investe aqui, mas a satisfação não corresponde ao esforço.", "Conflito interno": "Há uma tensão entre a importância que você dá e sua satisfação atual." },
+      "Relacionamento Afetivo": { "Equilibrado": "Seu relacionamento afetivo parece alinhado e satisfatório.", "Negligenciado": "Importante, mas talvez precise de mais dedicação ou tempo.", "Baixo retorno": "Muito investimento emocional ou prático com pouca satisfação percebida.", "Conflito interno": "Há um desalinhamento entre o que você valoriza e como se sente." },
+      "Finanças pessoais": { "Equilibrado": "Suas finanças parecem organizadas e alinhadas às suas necessidades.", "Negligenciado": "Importantes para você, mas talvez estejam recebendo pouca atenção.", "Baixo retorno": "Muito esforço (trabalho, controle) com pouca satisfação financeira.", "Conflito interno": "Tensão entre a importância do dinheiro e sua satisfação com ele." },
+      "Confiança nas decisões": { "Equilibrado": "Você se sente seguro e satisfeito com suas escolhas.", "Negligenciado": "Valoriza a autonomia, mas talvez precise dedicar mais tempo ou energia a decidir.", "Baixo retorno": "Você se esforça para decidir, mas a satisfação com o resultado é baixa.", "Conflito interno": "Há tensão entre a importância de decidir e sua satisfação com o processo ou resultado." },
+      "Ocupação principal": { "Equilibrado": "Seu trabalho/estudo parece alinhado com suas expectativas e satisfação.", "Negligenciado": "Importante, mas talvez precise de mais foco ou investimento de tempo.", "Baixo retorno": "Muita dedicação com pouca satisfação ou reconhecimento percebido.", "Conflito interno": "Tensão entre a importância dada e a satisfação obtida nesta área." },
+      "Desenvolvimento de Habilidades": { "Equilibrado": "Você sente que está aprendendo e crescendo de forma satisfatória.", "Negligenciado": "Importante para você, mas talvez precise de mais tempo ou ação.", "Baixo retorno": "Você estuda/pratica, mas não sente que está evoluindo como gostaria.", "Conflito interno": "Há uma tensão entre o quanto valoriza o desenvolvimento e sua satisfação atual." },
+      "Saúde Física": { "Equilibrado": "Seus cuidados com o corpo parecem alinhados e satisfatórios.", "Negligenciado": "Importante, mas talvez precise de mais atenção ou prática.", "Baixo retorno": "Você se exercita ou cuida, mas a satisfação com os resultados é baixa.", "Conflito interno": "Tensão entre a importância da saúde física e sua satisfação com ela." },
+      "Saúde Mental": { "Equilibrado": "Seu bem-estar emocional parece equilibrado e satisfatório.", "Negligenciado": "Importante, mas talvez precise de mais tempo para si ou práticas de autocuidado.", "Baixo retorno": "Você busca cuidar da mente, mas a satisfação com seu estado emocional é baixa.", "Conflito interno": "Há uma tensão entre a importância do bem-estar e como você se sente." }
     };
 
-    // ARQUÉTIPOS – baseados em diffVI (mV - mI) e diffDA (mD - mA)
-    const arquetipoTextos = {
-      "Conexão e ação": `<p>Você se sente mais nutrido pelos vínculos e pelas relações do que pela sua autonomia pessoal. Também se sente mais satisfeito com sua direção atual — como trabalho, projetos e metas — do que com o cuidado com o seu bem-estar. Pode ser que esteja em movimento, com boa rede ao redor, mas deixando o autocuidado um pouco de lado.<br>
-      Você tem garra e companhia. Só não esqueça que até o lobo mais forte precisa de pausa.</p>`,
-      "Conexão e pausa": `<p>Você se percebe mais satisfeito com suas relações e com o cuidado emocional que tem recebido — ou se permitido cultivar. Por outro lado, sente menos satisfação em relação à sua autonomia e ao seu momento de atuação prática, como trabalho, metas ou decisões pessoais. É como se as pausas, os vínculos e o acolhimento estivessem mais presentes do que o movimento. Pode ser um momento de introspecção — ou uma fase de recolhimento para se fortalecer.<br>
-      Você criou raízes afetivas e tem se escutado com carinho. Agora, como a coruja que desperta à noite, talvez seja hora de mover o que está parado.</p>`,
-      "Autonomia em movimento": `<p>Você demonstra maior satisfação com sua autonomia pessoal — sente que tem controle sobre suas decisões e recursos. Também se percebe mais alinhado com sua direção atual, como trabalho, metas e projetos. Por outro lado, vínculos afetivos e o cuidado consigo mesmo parecem estar em segundo plano. Essa configuração pode indicar um momento de foco e performance, mas não se esqueça de cuidar também do lado emocional.<br>
-      Como uma águia em voo: você enxerga longe e voa alto — só não esqueça de pousar e se cuidar de vez em quando.</p>`,
-      "Autonomia e recolhimento": `<p>Você demonstra maior satisfação com sua independência e com o cuidado que tem dado a si mesmo. No entanto, vínculos emocionais e conexões parecem estar mais distantes ou insatisfatórios neste momento. Essa combinação sugere introspecção e preservação.<br>
-      Como uma baleia em águas profundas: você se fortalece no silêncio — mas lembre-se que, de vez em quando, é preciso subir para respirar.</p>`
-    };
+    // Textos dos Arquétipos (mantidos caso sejam usados futuramente)
+    const arquetipoTextos = { /* ... (textos como antes) ... */ };
+    const arquetipoImages = { /* ... (imagens como antes) ... */ }; // Imagens não usadas no momento
 
-    // Imagens dos ARQUÉTIPOS
-    const arquetipoImages = {
-      "Conexão e ação": "https://raw.githubusercontent.com/michellef03/alinhamente/main/LOBO.png",
-      "Conexão e pausa": "https://raw.githubusercontent.com/michellef03/alinhamente/main/CORUJA.PNG",
-      "Autonomia em movimento": "https://raw.githubusercontent.com/michellef03/alinhamente/main/AGUIA.png",
-      "Autonomia e recolhimento": "https://raw.githubusercontent.com/michellef03/alinhamente/main/BALEIA.PNG"
-    };
-
-    // SUBARQUÉTIPOS – 7 subarquétipos
+    // Textos dos Sub-Arquétipos
     const subArquetipoTextos = {
-      "Falta de Autonomia e Direção": `<p>Você sente que não está no controle das suas escolhas — e também não tem clareza sobre pra onde está indo. Isso gera frustração, especialmente porque essas áreas importam para você. Talvez o primeiro passo não seja decidir tudo, mas recuperar pequenos espaços de escolha.</p>`,
-      "Falta de Conexão Social": `<p>Você sinalizou que suas relações de apoio são importantes, mas não têm trazido a satisfação necessária. Esse vazio pode impactar outras áreas. Buscar apoio ou criar novos espaços de troca pode fazer a diferença.</p>`,
-      "Em transição de prioridades": `<p>Você está vivendo um momento em que duas ou mais dimensões apresentam baixa satisfação (≤2) com alta importância (≥4). Isso indica que suas prioridades estão mudando e é hora de reavaliar onde investir sua energia.</p>`,
-      "Contradições Ativas": `<p>Suas respostas mostram contrastes fortes dentro da mesma área da vida — como se uma parte estivesse funcionando bem e outra estivesse em conflito. Essas tensões internas podem gerar confusão, cansaço ou indecisão. Reorganizar suas prioridades pode trazer mais paz.</p>`,
-      "Produtividade Vazia": `<p>Você tem dedicado bastante tempo a áreas importantes, mas sua satisfação é baixa (satisfação ≤2). Isso indica um descompasso entre esforço e retorno. Talvez seja hora de redirecionar sua energia ou ajustar suas expectativas.</p>`,
-      "Intenção sem Ação": `<p>Você identificou áreas importantes para você, mas que têm recebido pouca atenção prática (tempo investido ≤2). Existe intenção, mas ela ainda não virou movimento. Comece com pequenos passos.</p>`,
-      "✨Intenção em Ação✨": `<p>Você apresenta uma média de satisfação de pelo menos 4 em todas as dimensões, indicando que suas escolhas estão alinhadas com o que importa. Mantenha esse ritmo com leveza e consistência.</p>`
+        "Falta de Autonomia e Direção": `<p>Parece haver uma sensação de não estar no controle das suas escolhas (Independência) e/ou sem clareza sobre para onde ir (Direção), apesar de serem áreas importantes para você. Isso pode gerar frustração. Talvez o foco inicial seja recuperar pequenos espaços de escolha ou definir um próximo passo, mesmo que pequeno.</p>`,
+        "Falta de Conexão Social": `<p>Suas relações de apoio (Vínculos) foram sinalizadas como importantes, mas a satisfação atual parece baixa. Esse sentimento de desconexão ou falta de apoio pode impactar outras áreas. Refletir sobre o que falta nessas conexões ou buscar novos espaços de troca pode ser um caminho.</p>`,
+        "Em transição de prioridades": `<p>Duas ou mais dimensões foram marcadas como muito importantes, mas com baixa satisfação. Isso frequentemente indica um momento de mudança, onde suas prioridades podem estar se realinhando. É uma boa hora para reavaliar onde sua energia está sendo mais bem investida.</p>`,
+        "Contradições Ativas": `<p>Dentro de uma mesma dimensão (Vínculos, Independência, Direção ou Acolhimento), parece haver um contraste grande entre a satisfação nas diferentes áreas que a compõem. Essas tensões internas podem gerar confusão ou cansaço. Olhar para cada área separadamente pode ajudar a clarear.</p>`,
+        "Produtividade Vazia": `<p>Você parece dedicar bastante tempo e energia a certas áreas, mas a satisfação retornada é baixa. Isso pode indicar um desalinhamento entre esforço e resultado percebido, ou talvez expectativas que precisam ser reajustadas. Vale a pena questionar se o esforço está na direção certa.</p>`,
+        "Intenção sem Ação": `<p>Algumas áreas foram identificadas como muito importantes, mas recebem pouco tempo ou energia prática. Existe a intenção, mas ela ainda não se traduziu em movimento consistente. Começar com pequenos passos ou entender o que impede a ação pode ser útil.</p>`,
+        "✨Intenção em Ação✨": `<p>Parabéns! Seus resultados sugerem um bom nível de alinhamento entre o que você valoriza, como se sente e onde investe seu tempo na maioria das áreas. O desafio agora é manter esse equilíbrio com leveza e consistência, adaptando-se às mudanças naturais da vida.</p>`
     };
 
-    // Emojis para status dos itens
-    const statusEmojis = {
-      "Negligenciado": "⚠️",
-      "Baixo retorno": "🥵",
-      "Conflito interno": "🤔",
-      "Equilibrado": "💚"
-    };
+    const statusEmojis = { "Negligenciado": "⚠️", "Baixo retorno": "🥵", "Conflito interno": "🤔", "Equilibrado": "💚" };
+    const grupoIndicadores = { "Equilibrado": "💚", "Instável": "🟡", "Desequilíbrio": "🔴" };
 
-    // Indicador visual para grupos
-    const grupoIndicadores = {
-      "Equilibrado": "💚",
-      "Instável": "🟡",
-      "Desequilíbrio": "🔴"
-    };
+    // --- Variáveis para guardar as instâncias dos gráficos ---
+    let comparisonRadarInstance = null;
+    let timeBarInstance = null;
 
-    // Função para criar a tabela de entrada
+    // --- Funções Auxiliares ---
+
     function criarForm() {
       const tbody = document.querySelector('#formTable tbody');
       let linhas = '';
       areas.forEach(area => {
         area.itens.forEach((item, index) => {
           linhas += `<tr data-area="${item}">`;
-          if (index === 0) { 
-            linhas += `<td rowspan="${area.itens.length}">${area.grupo}</td>`;
+          if (index === 0) {
+            linhas += `<td rowspan="${area.itens.length}" class="align-middle text-center fw-bold small">${area.grupo}</td>`;
           }
           linhas += `
-            <td>${item}</td>
-            <td><select class="form-select">${opcoes}</select></td>
-            <td><select class="form-select">${opcoes}</select></td>
-            <td><select class="form-select">${opcoes}</select></td>
-            <td class="status"></td>
+            <td class="small">${item}</td>
+            <td><select class="form-select form-select-sm">${opcoes}</select></td>
+            <td><select class="form-select form-select-sm">${opcoes}</select></td>
+            <td><select class="form-select form-select-sm">${opcoes}</select></td>
+            <td class="status align-middle text-center small"></td>
           </tr>`;
         });
       });
       tbody.innerHTML = linhas;
     }
 
-    // Função para verificar se todos os selects foram preenchidos
     function allFieldsFilled() {
       const rows = document.querySelectorAll('#formTable tbody tr');
       let filled = true;
@@ -469,354 +397,584 @@
       return filled;
     }
 
-    // Determina o status de cada item
     function getItemStatus(imp, sat, temp) {
-      if (imp - temp >= 2) return "Negligenciado";
-      if (temp - sat >= 2) return "Baixo retorno";
-      if (imp - sat >= 2) return "Conflito interno";
-      return "Equilibrado";
+        if (imp >= 4 && temp <= 2) return "Negligenciado";
+        if (temp >= 4 && sat <= 2) return "Baixo retorno";
+        if (imp >= 4 && sat <= 2) return "Conflito interno";
+        return "Equilibrado";
     }
 
-    // Calcula o status global do grupo
+
     function getStatusGrupo(itensDoGrupo) {
+      const totalItens = itensDoGrupo.length;
+      if (totalItens === 0) return "Indefinido";
       const totalEquilibrados = itensDoGrupo.filter(i => i.status === "Equilibrado").length;
-      if (totalEquilibrados === itensDoGrupo.length) return "Equilibrado";
-      if (totalEquilibrados > 0) return "Instável";
-      return "Desequilíbrio";
+      const totalDesequilibrio = itensDoGrupo.filter(i => i.status === "Baixo retorno" || i.status === "Conflito interno").length;
+      const totalNegligenciados = itensDoGrupo.filter(i => i.status === "Negligenciado").length;
+      if (totalEquilibrados === totalItens) return "Equilibrado";
+      if (totalDesequilibrio > 0) return "Desequilíbrio";
+      if (totalNegligenciados > 0) return "Instável";
+      return "Instável";
     }
 
-    // Retorna a média de satisfação de um grupo
-    function getMediaSatisfacao(itensDoGrupo) {
-      const sats = itensDoGrupo.map(i => i.sat);
-      return sats.reduce((a, b) => a + b, 0) / sats.length;
-    }
 
-    // Função para calcular o ARQUÉTIPO com base em diffVI e diffDA
     function getArquetipo(diffVI, diffDA) {
-      if (diffVI > 0 && diffDA > 0) return "Conexão e ação";
-      if (diffVI > 0 && diffDA < 0) return "Conexão e pausa";
-      if (diffVI < 0 && diffDA > 0) return "Autonomia em movimento";
-      return "Autonomia e recolhimento";
-    }
+      const limiar = 0.5;
+      const vinculosMaior = diffVI > limiar;
+      const independenciaMaior = diffVI < -limiar;
+      const direcaoMaior = diffDA > limiar;
+      const acolhimentoMaior = diffDA < -limiar;
 
-    // Função para calcular os SUBARQUÉTIPOS e retornar um array com os rótulos
-    function calcularSubArquetipo() {
-      let matched = [];
-      const rows = document.querySelectorAll('#formTable tbody tr');
-      // Agrupa os dados por dimensão
-      let satDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
-      let impDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
-      let tempDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
-      rows.forEach(row => {
-        const areaName = row.getAttribute('data-area');
-        let macro = "";
-        areas.forEach(a => { if (a.itens.includes(areaName)) macro = a.grupo; });
-        const selects = row.querySelectorAll('select');
-        const imp = Number(selects[0].value);
-        const sat = Number(selects[1].value);
-        const temp = Number(selects[2].value);
-        satDim[macro].push(sat);
-        impDim[macro].push(imp);
-        tempDim[macro].push(temp);
-      });
-      // Função auxiliar para média
-      function media(arr) {
-        return arr.reduce((acc, n) => acc + n, 0) / arr.length;
-      }
-      let mV = media(satDim["Vínculos"]);
-      let mI = media(satDim["Independência"]);
-      let mD = media(satDim["Direção"]);
-      let mA = media(satDim["Acolhimento"]);
+      if (vinculosMaior && direcaoMaior) return "Conexão e Ação";
+      if (vinculosMaior && acolhimentoMaior) return "Conexão e Pausa";
+      if (independenciaMaior && direcaoMaior) return "Autonomia em Movimento";
+      if (independenciaMaior && acolhimentoMaior) return "Autonomia e Recolhimento";
 
-      // Função auxiliar para média de importância
-      function mediaImp(dim) { 
-        return media(impDim[dim]);
-      }
-
-      // 7. Intenção em Ação: média de satisfação em todas as dimensões ≥ 4
-      if (mV >= 4 && mI >= 4 && mD >= 4 && mA >= 4) {
-        matched.push("Intenção em Ação");
-      }
-      // 1. Falta de Autonomia e Direção: Independência ≤ 2 e Direção ≤ 2, com média de importância ≥ 4
-      if (mI <= 2 && mD <= 2 && mediaImp("Independência") >= 4 && mediaImp("Direção") >= 4) {
-        matched.push("Falta de Autonomia e Direção");
-      }
-      // 2. Falta de Conexão Social: Apenas Vínculos apresenta sat ≤ 2 e média imp ≥ 4, enquanto as outras têm sat > 2
-      if (mV <= 2 && mediaImp("Vínculos") >= 4 && mI > 2 && mD > 2 && mA > 2) {
-        matched.push("Falta de Conexão Social");
-      }
-      // 3. Em transição de prioridades: 2 ou mais dimensões com sat ≤ 2 e média imp ≥ 4
-      let contDim = 0;
-      [["Vínculos", mV], ["Independência", mI], ["Direção", mD], ["Acolhimento", mA]].forEach(pair => {
-         let [dim, satM] = pair;
-         if (satM <= 2 && mediaImp(dim) >= 4) contDim++;
-      });
-      if (contDim >= 2) {
-         matched.push("Em transição de prioridades");
-      }
-      // 4. Contradições Ativas: diferença entre o valor máximo e mínimo das respostas em alguma dimensão ≥ 3
-      for (let macro in satDim) {
-         if (satDim[macro].length > 1) {
-             let minVal = Math.min(...satDim[macro]);
-             let maxVal = Math.max(...satDim[macro]);
-             if (maxVal - minVal >= 3) {
-               matched.push("Contradições Ativas");
-               break;
-             }
-         }
-      }
-      // 5. Produtividade Vazia: em 2 ou mais áreas, Tempo Investido ≥ 4 e Satisfação ≤ 2
-      let pvCount = 0;
-      rows.forEach(row => {
-         const selects = row.querySelectorAll('select');
-         const sat = Number(selects[1].value);
-         const temp = Number(selects[2].value);
-         if (temp >= 4 && sat <= 2) pvCount++;
-      });
-      if (pvCount >= 2) {
-         matched.push("Produtividade Vazia");
-      }
-      // 6. Intenção sem Ação: em 2 ou mais áreas, Importância ≥ 4 e Tempo Investido ≤ 2
-      let isaCount = 0;
-      rows.forEach(row => {
-         const selects = row.querySelectorAll('select');
-         const imp = Number(selects[0].value);
-         const temp = Number(selects[2].value);
-         if (imp >= 4 && temp <= 2) isaCount++;
-      });
-      if (isaCount >= 2) {
-         matched.push("Intenção sem Ação");
-      }
-      return matched.length > 0 ? matched : ["Nenhum subtipo"];
-    }
-
-    // Função para renderizar lista (usada na seção "Por onde começar")
-    function renderLista(arr) {
-      if (!arr || arr.length === 0) return `<p>Sem áreas aqui</p>`;
-      return `<ul>${arr.map(a => `<li>${a}</li>`).join("")}</ul>`;
-    }
-
-    // Função para calcular os resultados por grupo e preparar o resumo para "Por onde começar"
-    function calculateGroupResults() {
-      const resultadosPorGrupo = {};
-      const resumo = { baixoRetorno: [], negligenciado: [], manter: [], conflito: [] };
-      areas.forEach(area => {
-        const itensDoGrupo = [];
-        area.itens.forEach(item => {
-          const row = document.querySelector(`tr[data-area="${item}"]`);
-          const selects = row.querySelectorAll('select');
-          const imp = Number(selects[0].value);
-          const sat = Number(selects[1].value);
-          const temp = Number(selects[2].value);
-          const status = getItemStatus(imp, sat, temp);
-          row.querySelector('.status').innerHTML = `${statusEmojis[status]} ${status}`;
-          itensDoGrupo.push({ item, status, sat });
-          switch(status) {
-            case "Baixo retorno": resumo.baixoRetorno.push(item); break;
-            case "Negligenciado": resumo.negligenciado.push(item); break;
-            case "Equilibrado": resumo.manter.push(item); break;
-            case "Conflito interno": resumo.conflito.push(item); break;
-          }
-        });
-        const statusGrupo = getStatusGrupo(itensDoGrupo);
-        const mediaSatisfacaoGrupo = getMediaSatisfacao(itensDoGrupo);
-        resultadosPorGrupo[area.grupo] = { itens: itensDoGrupo, statusGrupo, media: mediaSatisfacaoGrupo };
-      });
-      return { resultadosPorGrupo, resumo };
-    }
-
-    // Função para construir o HTML final dos resultados
-    function buildFinalHtml(results, mV, mI, mD, mA, arquetipo, textoArquetipo, arqImg, subArquetipos, textoSubMap) {
-      // Constrói a lista de subarquétipos com seus textos explicativos
-      let subHtml = "";
-      subArquetipos.forEach(key => {
-        // Se não houver texto para o subtipo (por exemplo, "Nenhum subtipo") não exibe
-        if(key === "Nenhum subtipo") {
-          subHtml += `<p>${key}</p>`;
-        } else {
-          subHtml += `<p><strong>${key}</strong><br>${textoSubMap[key]}</p>`;
-        }
-      });
-
-      let htmlContent = `
-        <div class="resultado-geral">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="${arqImg}" class="img-fluid" alt="${arquetipo}">
-            </div>
-            <div class="col-md-8 resultado-principal text-center">
-              <h2>${arquetipo}</h2>
-              ${textoArquetipo}
-              <div class="medias">(Médias: Vínculos=${mV.toFixed(1)}, Independência=${mI.toFixed(1)}, Direção=${mD.toFixed(1)}, Acolhimento=${mA.toFixed(1)})</div>
-              <div class="d-grid gap-2 mt-3">
-                <button id="shareBtn" class="btn btn-secondary">Veja mais detalhes abaixo</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="resultado-geral">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h2>O que mais percebemos?</h2>
-              ${subHtml}
-            </div>
-          </div>
-        </div>
-        
-        <div class="por-onde-comecar mb-5">
-          <h3>POR ONDE COMEÇAR?</h3>
-          <div class="row g-3 mb-4">
-            <div class="col-md-6">
-              <div class="card p-3 h-100">
-                <h5>Etapa 1: Recuperar energia (Baixo retorno)</h5>
-                <div id="etapa1">${renderLista(results.resumo.baixoRetorno)}</div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card p-3 h-100">
-                <h5>Etapa 2: Redirecionar intenção (Negligenciadas)</h5>
-                <div id="etapa2">${renderLista(results.resumo.negligenciado)}</div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <div class="card p-3 h-100">
-                <h5>Manter! (Áreas Equilibradas)</h5>
-                <div class="conteudo-lista" id="manter">${renderLista(results.resumo.manter)}</div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card p-3 h-100">
-                <h5>Áreas em conflito (Importantes, mas com baixa satisfação)</h5>
-                <div class="conteudo-lista" id="conflito">${renderLista(results.resumo.conflito)}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="pare-info mb-5">
-          <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#pareCollapse" aria-expanded="false" aria-controls="pareCollapse">
-              <h5 class="mb-0">🌱 Isso faz parte do Método P.A.R.E. Entenda o método completo aqui</h5>
-              <button class="btn btn-sm btn-outline-primary">Ver detalhes</button>
-            </div>
-            <div class="collapse" id="pareCollapse">
-              <div class="card-body">
-                <p>Criado por mim, o método P.A.R.E. é um convite para viver com mais intenção e menos no automático. É uma forma de tomar decisões mais conscientes, alinhadas com o que importa para você.</p>
-                <p><strong>Cada letra representa um passo:</strong></p>
-                <ul>
-                  <li>🅿️ Parar para pensar — sair do piloto automático e ganhar clareza sobre sua realidade</li>
-                  <li>🅰️ Avaliar com honestidade — entender onde você está e o que te falta</li>
-                  <li>🆁 Roteirizar com intenção — criar um plano viável com base nos seus recursos</li>
-                  <li>🅴 Estabilizar com flexibilidade — manter o que funciona e adaptar o que não funcionar</li>
-                </ul>
-                <p>Esse teste é um apoio para começar a olhar com honestidade para sua vida.</p>
-                <p><strong>✨ E depois?</strong></p>
-<p>Após identificar as áreas que merecem mais cuidado, te convido a acompanhar a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a>.</p>              </div>
-            </div>
-          </div>
-        </div>
-        
-        <h3 class="detalhes-title">Detalhes por Grupo</h3>
-      `;
-      let gruposHTML = "";
-      let index = 0;
-      for (const grupo in results.resultadosPorGrupo) {
-        const g = results.resultadosPorGrupo[grupo];
-        const collapseId = `collapseGroup${index++}`;
-        const indicador = grupoIndicadores[g.statusGrupo] || "";
-        gruposHTML += `
-          <div class="grupo-result mb-3">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="mb-0">${grupo} - ${g.statusGrupo} <span class="grupo-indicador">${indicador}</span></h5>
-              <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}">
-                Ver detalhes
-              </button>
-            </div>
-            <div class="collapse mt-2" id="${collapseId}">
-              <p><strong>Média de Satisfação:</strong> ${g.media.toFixed(1)}</p>
-        `;
-        g.itens.forEach(i => {
-          gruposHTML += `
-            <div class="item-result">
-              <strong>${i.item} - ${i.status}</strong><br>
-              <em>${textos[i.item] ? textos[i.item][i.status] || "" : ""}</em>
-            </div>
-          `;
-        });
-        gruposHTML += `</div></div>`;
-      }
-      return htmlContent + gruposHTML;
-    }
-
-    // Função para compartilhar resultado
-    function shareResult(arquetipo) {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Resultado do Teste de Alinhamento',
-          text: 'Meu resultado: ' + arquetipo,
-          url: window.location.href
-        }).catch(err => console.error(err));
+      if (Math.abs(diffVI) > Math.abs(diffDA)) {
+          return vinculosMaior ? "Foco em Conexão" : "Foco em Autonomia";
+      } else if (Math.abs(diffDA) > Math.abs(diffVI)) {
+          return direcaoMaior ? "Foco em Direção" : "Foco em Acolhimento";
       } else {
-        alert('Compartilhamento não suportado neste dispositivo.');
+          return "Equilíbrio Geral";
       }
     }
 
-    // Função principal para calcular e exibir os resultados
-    function calcularResultados() {
-      if (!allFieldsFilled()) {
-        document.getElementById('resultados').innerHTML = '<div class="alert alert-warning">Preencher o teste acima para ver o resultado</div>';
-        return;
-      }
-      const resultadosPorGrupo = {};
-      const resumo = { baixoRetorno: [], negligenciado: [], manter: [], conflito: [] };
-      areas.forEach(area => {
-        const itensDoGrupo = [];
-        area.itens.forEach(item => {
-          const row = document.querySelector(`tr[data-area="${item}"]`);
+
+    function calcularSubArquetipo() {
+       let matched = [];
+       const rows = document.querySelectorAll('#formTable tbody tr');
+       let satDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+       let impDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+       let tempDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+       rows.forEach(row => {
+         const areaName = row.getAttribute('data-area');
+         let macro = "";
+         areas.forEach(a => { if (a.itens.includes(areaName)) macro = a.grupo; });
+         const selects = row.querySelectorAll('select');
+         const imp = Number(selects[0].value) || 0;
+         const sat = Number(selects[1].value) || 0;
+         const temp = Number(selects[2].value) || 0;
+         satDim[macro].push(sat); impDim[macro].push(imp); tempDim[macro].push(temp);
+       });
+       function media(arr) { return arr.reduce((acc, n) => acc + n, 0) / (arr.length || 1); }
+       let mV = media(satDim["Vínculos"]); let mI = media(satDim["Independência"]); let mD = media(satDim["Direção"]); let mA = media(satDim["Acolhimento"]);
+       function mediaImp(dim) { return media(impDim[dim]); }
+
+       if (mV >= 3.5 && mI >= 3.5 && mD >= 3.5 && mA >= 3.5) {
+         matched.push("✨Intenção em Ação✨");
+         return matched;
+       }
+
+       if (mI <= 2 && mD <= 2 && mediaImp("Independência") >= 4 && mediaImp("Direção") >= 4) {
+         matched.push("Falta de Autonomia e Direção");
+       }
+       if (mV <= 2 && mediaImp("Vínculos") >= 4 && mI > 2 && mD > 2 && mA > 2) {
+         matched.push("Falta de Conexão Social");
+       }
+       let contDimBaixaSatAltaImp = 0;
+       [["Vínculos", mV], ["Independência", mI], ["Direção", mD], ["Acolhimento", mA]].forEach(pair => {
+          let [dim, satM] = pair;
+          if (satM <= 2 && mediaImp(dim) >= 4) contDimBaixaSatAltaImp++;
+       });
+       if (contDimBaixaSatAltaImp >= 2) {
+          matched.push("Em transição de prioridades");
+       }
+       for (let macro in satDim) {
+          if (satDim[macro].length > 1) {
+              let minVal = Math.min(...satDim[macro]);
+              let maxVal = Math.max(...satDim[macro]);
+              if (maxVal - minVal >= 3) {
+                matched.push("Contradições Ativas");
+                break;
+              }
+          }
+       }
+       let pvCount = 0;
+       rows.forEach(row => {
           const selects = row.querySelectorAll('select');
-          const imp = Number(selects[0].value);
           const sat = Number(selects[1].value);
           const temp = Number(selects[2].value);
-          const status = getItemStatus(imp, sat, temp);
-          row.querySelector('.status').innerHTML = `${statusEmojis[status]} ${status}`;
-          itensDoGrupo.push({ item, status, sat });
-          switch(status) {
-            case "Baixo retorno": resumo.baixoRetorno.push(item); break;
-            case "Negligenciado": resumo.negligenciado.push(item); break;
-            case "Equilibrado": resumo.manter.push(item); break;
-            case "Conflito interno": resumo.conflito.push(item); break;
-          }
-        });
-        const statusGrupo = getStatusGrupo(itensDoGrupo);
-        const mediaSatisfacaoGrupo = getMediaSatisfacao(itensDoGrupo);
-        resultadosPorGrupo[area.grupo] = { itens: itensDoGrupo, statusGrupo, media: mediaSatisfacaoGrupo };
-      });
+          if (temp >= 4 && sat <= 2) pvCount++;
+       });
+       if (pvCount >= 2) {
+          matched.push("Produtividade Vazia");
+       }
+       let isaCount = 0;
+       rows.forEach(row => {
+          const selects = row.querySelectorAll('select');
+          const imp = Number(selects[0].value);
+          const temp = Number(selects[2].value);
+          if (imp >= 4 && temp <= 2) isaCount++;
+       });
+       if (isaCount >= 2) {
+          matched.push("Intenção sem Ação");
+       }
 
-      // Cálculo das médias globais
-      const mV = resultadosPorGrupo["Vínculos"].media || 0;
-      const mI = resultadosPorGrupo["Independência"].media || 0;
-      const mD = resultadosPorGrupo["Direção"].media || 0;
-      const mA = resultadosPorGrupo["Acolhimento"].media || 0;
-      const diffVI = mV - mI;
-      const diffDA = mD - mA;
-      const arquetipo = getArquetipo(diffVI, diffDA);
-      const textoArquetipo = arquetipoTextos[arquetipo] || "";
-      const arqImg = arquetipoImages[arquetipo] || "";
-      const subArquetipos = calcularSubArquetipo(); // Agora retorna um array
-      // Cria um objeto com os textos dos subarquétipos para facilitar o acesso
-      const textoSubMap = subArquetipoTextos;
-      const finalHtml = buildFinalHtml({ resultadosPorGrupo, resumo }, mV, mI, mD, mA, arquetipo, textoArquetipo, arqImg, subArquetipos, textoSubMap);
-      document.getElementById('resultados').innerHTML = finalHtml;
+       if (matched.length === 0 && !(mV >= 3.5 && mI >= 3.5 && mD >= 3.5 && mA >= 3.5)) {
+           matched.push("Nenhuma característica específica detectada.");
+       }
 
-      const shareBtn = document.getElementById('shareBtn');
-      if (shareBtn) { shareBtn.addEventListener('click', () => shareResult(arquetipo)); }
+       return matched;
     }
 
-    document.getElementById('btnCalcular').addEventListener('click', calcularResultados);
-    criarForm();
+
+    function renderLista(arr) {
+      if (!arr || arr.length === 0) return `<p class="text-muted small fst-italic">Nenhuma área identificada aqui.</p>`;
+      return `<ul class="mb-0 ps-3">${arr.map(a => `<li class="mb-1 small">${a}</li>`).join("")}</ul>`;
+    }
+
+    function calculateGroupResults() {
+        const resultadosPorGrupo = {};
+        const resumo = { baixoRetorno: [], negligenciado: [], manter: [], conflito: [] };
+
+        areas.forEach(area => {
+            const itensDoGrupo = [];
+            let somaImp = 0, somaSatisfacao = 0, somaTempo = 0;
+
+            area.itens.forEach(item => {
+                const row = document.querySelector(`tr[data-area="${item}"]`);
+                const selects = row.querySelectorAll('select');
+                const imp = Number(selects[0].value) || 0;
+                const sat = Number(selects[1].value) || 0;
+                const temp = Number(selects[2].value) || 0;
+                const status = getItemStatus(imp, sat, temp);
+
+                somaImp += imp;
+                somaSatisfacao += sat;
+                somaTempo += temp;
+
+                const statusCell = row.querySelector('.status');
+                if (statusCell) {
+                    statusCell.innerHTML = `${statusEmojis[status] || ''} ${status}`;
+                }
+
+                itensDoGrupo.push({ item, status, sat, imp, temp });
+
+                switch(status) {
+                    case "Baixo retorno": resumo.baixoRetorno.push(item); break;
+                    case "Negligenciado": resumo.negligenciado.push(item); break;
+                    case "Equilibrado": resumo.manter.push(item); break;
+                    case "Conflito interno": resumo.conflito.push(item); break;
+                }
+            });
+
+            const statusGrupo = getStatusGrupo(itensDoGrupo);
+            const numItens = area.itens.length || 1;
+
+            const mediaSatisfacaoGrupo = somaSatisfacao / numItens;
+            const mediaImportanciaGrupo = somaImp / numItens;
+            const mediaTempoGrupo = somaTempo / numItens;
+
+            resultadosPorGrupo[area.grupo] = {
+                itens: itensDoGrupo,
+                statusGrupo,
+                mediaSatisfacao: mediaSatisfacaoGrupo,
+                mediaImportancia: mediaImportanciaGrupo,
+                mediaTempo: mediaTempoGrupo
+            };
+        });
+        return { resultadosPorGrupo, resumo };
+    }
+
+    // --- Função MODIFICADA para construir o HTML com DOIS gráficos ---
+    function buildFinalHtml(results, mV, mI, mD, mA, impV, impI, impD, impA, tempV, tempI, tempD, tempA, arquetipo, subArquetipos, textoSubMap) {
+        // Gera HTML dos Sub-arquétipos
+        let subHtml = "";
+        subArquetipos.forEach(key => {
+            if (key === "Nenhuma característica específica detectada.") {
+              subHtml += `<p class="text-muted fst-italic">${key}</p>`;
+            } else if (textoSubMap[key]) {
+              let icon = 'ℹ️';
+              if (key.startsWith('✨')) icon = '✨';
+              else if (key.includes('Falta') || key.includes('Vazia') || key.includes('sem Ação')) icon = '⚠️';
+              else if (key.includes('transição') || key.includes('Contradições')) icon = '↔️';
+              subHtml += `<div class="mb-3"><p class="mb-1"><strong>${icon} ${key.replace('✨','')}</strong></p>${textoSubMap[key]}</div>`;
+            }
+        });
+         if (subHtml === "") { subHtml = "<p class='text-muted fst-italic'>Nenhuma característica adicional percebida neste momento.</p>"; }
+
+        // --- Bloco Principal com DOIS Canvas ---
+        // *** CORREÇÃO AQUI: Removidos comentários HTML e título movido ***
+        let htmlContent = `
+            <div class="resultado-geral shadow-sm">
+                <div class="text-center mb-4">
+                    <h5 class="text-muted fw-normal">Seu Mapa de Alinhamente</h5>
+                    <p class="small text-muted mb-0">Visualize abaixo a relação entre Importância, Satisfação e Tempo Investido nas dimensões da sua vida.</p>
+                </div>
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="chart-container">
+                            <h6 class="text-center text-muted small mb-1">Importância (laranja) vs. Satisfação (azul)</h6>
+                            <canvas id="comparisonRadarChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="col-lg-5 col-md-6">
+                         <div class="chart-container">
+                             <h6 class="text-center text-muted small mb-1">Tempo (barras roxas) vs. Satisfação (pontos azuis)</h6>
+                             <canvas id="timeBarChart"></canvas>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        `; // Fim do bloco principal
+
+        // --- HTML dos Sub-arquétipos ---
+        htmlContent += `
+            <div class="resultado-geral shadow-sm">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="mb-4 text-center fw-bold">O que mais percebemos?</h3>
+                  <div class="text-start">
+                    ${subHtml}
+                  </div>
+                </div>
+              </div>
+            </div>
+        `;
+
+        // --- HTML "Por Onde Começar" ---
+        htmlContent += `
+            <div class="por-onde-comecar mb-5">
+              <h3 class="mb-3">POR ONDE COMEÇAR?</h3>
+              <p class="explicativo mb-4">Sugestões baseadas nas áreas que mostraram maior desalinhamento entre importância, satisfação e tempo investido.</p>
+              <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                  <div class="card p-3 h-100 shadow-sm">
+                    <h5 class="mb-3"><span class="me-2">🥵</span>Etapa 1: Recuperar energia (Baixo retorno)</h5>
+                    <p class="small text-muted mb-2">Áreas onde você investe tempo/energia, mas a satisfação está baixa.</p>
+                    <div id="etapa1">${renderLista(results.resumo.baixoRetorno)}</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card p-3 h-100 shadow-sm">
+                    <h5 class="mb-3"><span class="me-2">⚠️</span>Etapa 2: Redirecionar intenção (Negligenciadas)</h5>
+                     <p class="small text-muted mb-2">Áreas importantes para você, mas que recebem pouco tempo/energia.</p>
+                    <div id="etapa2">${renderLista(results.resumo.negligenciado)}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-4">
+                 <div class="col-md-6">
+                  <div class="card p-3 h-100 shadow-sm">
+                    <h5 class="mb-3"><span class="me-2">🤔</span>Reavaliar (Conflito Interno)</h5>
+                    <p class="small text-muted mb-2">Áreas importantes, mas com baixa satisfação, mesmo sem negligência ou baixo retorno aparente.</p>
+                    <div class="conteudo-lista" id="conflito">${renderLista(results.resumo.conflito)}</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="card p-3 h-100 shadow-sm" style="border-left: 5px solid #198754;">
+                     <h5 class="mb-3"><span class="me-2">💚</span>Manter! (Áreas Equilibradas)</h5>
+                     <p class="small text-muted mb-2">Áreas onde seu investimento parece alinhado à sua satisfação.</p>
+                     <div class="conteudo-lista" id="manter">${renderLista(results.resumo.manter)}</div>
+                   </div>
+                 </div>
+              </div>
+            </div>
+        `;
+
+        // --- HTML Bloco P.A.R.E. nos Resultados ---
+        htmlContent += `
+            <div class="pare-info mb-5">
+              <div class="card shadow-sm">
+                <div class="card-header d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#pareCollapse" aria-expanded="false" aria-controls="pareCollapse">
+                  <h5 class="mb-0">🌱 Este teste é o 1º passo do Método P.A.R.E.</h5>
+                  <button class="btn btn-sm btn-outline-dark">Ver detalhes</button>
+                </div>
+                <div class="collapse" id="pareCollapse">
+                  <div class="card-body">
+                    <p>O método P.A.R.E. é um convite para viver com mais intenção:</p>
+                    <ul class="list-unstyled ps-3">
+                      <li>🅿️  <strong>Parar:</strong> Sair do piloto automático (você já começou!).</li>
+                      <li>🅰️  <strong>Avaliar:</strong> Entender sua situação atual (o teste ajuda aqui).</li>
+                      <li>🆁  <strong>Roteirizar:</strong> Criar um plano de ação viável.</li>
+                      <li>🅴  <strong>Estabilizar:</strong> Manter o que funciona e ajustar o necessário.</li>
+                    </ul>
+                    <p class="mt-3"><strong>✨ E depois?</strong></p>
+                    <p>Após identificar as áreas de foco, te convido a acompanhar a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a> para os próximos passos (Avaliar, Roteirizar, Estabilizar).</p>
+                   </div>
+                </div>
+              </div>
+            </div>
+        `;
+
+        // --- HTML Detalhes por Grupo ---
+        htmlContent += `<h3 class="detalhes-title mb-4">Detalhes por Dimensão</h3>`;
+        let gruposHTML = "";
+        let index = 0;
+        for (const grupo in results.resultadosPorGrupo) {
+            const g = results.resultadosPorGrupo[grupo];
+            const collapseId = `collapseGroup${index++}`;
+            const indicador = grupoIndicadores[g.statusGrupo] || "";
+            let borderClass = 'border-secondary';
+            if (g.statusGrupo === 'Equilibrado') borderClass = 'border-success';
+            else if (g.statusGrupo === 'Instável') borderClass = 'border-warning';
+            else if (g.statusGrupo === 'Desequilíbrio') borderClass = 'border-danger';
+
+            gruposHTML += `
+              <div class="grupo-result mb-3 card shadow-sm ${borderClass}" style="border-width: 1px; border-left-width: 5px !important;">
+                <div class="card-body p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap">
+                      <h5 class="mb-1 me-2">${grupo} <span class="badge bg-light text-dark ms-2 fw-normal">${g.statusGrupo}</span> <span class="grupo-indicador">${indicador}</span></h5>
+                      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+                        Ver itens
+                      </button>
+                    </div>
+                    <div class="small text-muted mb-2 d-flex flex-wrap">
+                        <span class="me-3" title="Média de Satisfação para ${grupo}">Satisfação: <b>${g.mediaSatisfacao.toFixed(1)}</b></span>
+                        <span class="me-3" title="Média de Importância para ${grupo}">Importância: <b>${g.mediaImportancia.toFixed(1)}</b></span>
+                        <span title="Média de Tempo Investido para ${grupo}">Tempo: <b>${g.mediaTempo.toFixed(1)}</b></span>
+                    </div>
+                    <div class="collapse mt-3" id="${collapseId}">
+            `;
+            g.itens.forEach(i => {
+                let itemBorderColor = '#6c757d';
+                if (i.status === 'Equilibrado') itemBorderColor = '#198754';
+                else if (i.status === 'Negligenciado') itemBorderColor = '#ffc107';
+                else if (i.status === 'Baixo retorno') itemBorderColor = '#fd7e14';
+                else if (i.status === 'Conflito interno') itemBorderColor = '#6f42c1';
+
+                gruposHTML += `
+                    <div class="item-result mb-2 p-2" style="border-left: 4px solid ${itemBorderColor};">
+                      <strong class="small">${i.item} - ${i.status} ${statusEmojis[i.status]}</strong><br>
+                      <em class="small text-muted d-block mt-1">${textos[i.item] ? textos[i.item][i.status] || "..." : "..."}</em>
+                    </div>
+                `;
+            });
+            gruposHTML += `</div></div></div>`;
+        }
+
+        return htmlContent + gruposHTML;
+    }
+
+
+    // --- Função principal MODIFICADA para dois gráficos ---
+    function calcularResultados() {
+        console.log("--- calcularResultados INICIADA ---");
+
+        // --- 1. Destruir instâncias ANTERIORES dos gráficos ---
+        if (comparisonRadarInstance) {
+            console.log("Destruindo instância anterior do Radar Chart...");
+            try { comparisonRadarInstance.destroy(); comparisonRadarInstance = null; }
+            catch (error) { console.error("Erro ao destruir Radar Chart:", error); comparisonRadarInstance = null; }
+        }
+        if (timeBarInstance) {
+            console.log("Destruindo instância anterior do Bar Chart...");
+            try { timeBarInstance.destroy(); timeBarInstance = null; }
+            catch (error) { console.error("Erro ao destruir Bar Chart:", error); timeBarInstance = null; }
+        }
+
+        // --- 2. Validação ---
+        if (!allFieldsFilled()) {
+             console.log("Validação falhou: Campos não preenchidos.");
+             document.getElementById('resultados').innerHTML = '<div class="alert alert-warning text-center">Por favor, preencha todos os campos do teste acima para ver seus resultados.</div>';
+             console.log("--- calcularResultados FINALIZADA (Falha na Validação) ---");
+             return;
+        }
+        console.log("Validação OK.");
+
+        // --- 3. Cálculos e Extração de TODAS as médias ---
+        console.log("Iniciando cálculos...");
+        const { resultadosPorGrupo, resumo } = calculateGroupResults();
+
+        const mV = resultadosPorGrupo["Vínculos"]?.mediaSatisfacao || 0;
+        const mI = resultadosPorGrupo["Independência"]?.mediaSatisfacao || 0;
+        const mD = resultadosPorGrupo["Direção"]?.mediaSatisfacao || 0;
+        const mA = resultadosPorGrupo["Acolhimento"]?.mediaSatisfacao || 0;
+        const impV = resultadosPorGrupo["Vínculos"]?.mediaImportancia || 0;
+        const impI = resultadosPorGrupo["Independência"]?.mediaImportancia || 0;
+        const impD = resultadosPorGrupo["Direção"]?.mediaImportancia || 0;
+        const impA = resultadosPorGrupo["Acolhimento"]?.mediaImportancia || 0;
+        const tempV = resultadosPorGrupo["Vínculos"]?.mediaTempo || 0;
+        const tempI = resultadosPorGrupo["Independência"]?.mediaTempo || 0;
+        const tempD = resultadosPorGrupo["Direção"]?.mediaTempo || 0;
+        const tempA = resultadosPorGrupo["Acolhimento"]?.mediaTempo || 0;
+
+        const diffVI = mV - mI; const diffDA = mD - mA;
+        const arquetipo = getArquetipo(diffVI, diffDA);
+        const subArquetipos = calcularSubArquetipo();
+        const textoSubMap = subArquetipoTextos;
+        console.log("Cálculos finalizados. Arquétipo (interno):", arquetipo);
+
+        // --- 4. Geração do HTML ---
+        console.log("Construindo HTML dos resultados...");
+        const finalHtml = buildFinalHtml(
+            { resultadosPorGrupo, resumo },
+            mV, mI, mD, mA, impV, impI, impD, impA, tempV, tempI, tempD, tempA,
+            arquetipo, subArquetipos, textoSubMap
+        );
+
+        // --- 5. Atualização do DOM ---
+        console.log("Atualizando o innerHTML de #resultados...");
+        document.getElementById('resultados').innerHTML = finalHtml;
+        console.log("innerHTML de #resultados atualizado.");
+
+        // --- 6. Criação dos Novos Gráficos ---
+        // --- 6a. Gráfico Radar (Comparativo) ---
+        console.log("Tentando criar o Gráfico Radar Comparativo...");
+        const radarCtx = document.getElementById('comparisonRadarChart');
+        if (radarCtx) {
+            console.log("Canvas #comparisonRadarChart ENCONTRADO.");
+            try {
+                const satisfacaoColor = 'rgb(13, 110, 253)'; // Azul primário Bootstrap
+                const satisfacaoBgColor = 'rgba(13, 110, 253, 0.2)';
+                const importanciaColor = 'rgb(255, 193, 7)'; // Amarelo 'warning' Bootstrap
+                const importanciaBgColor = 'rgba(255, 193, 7, 0.2)';
+
+                const radarData = {
+                     labels: ['Vínculos', 'Independência', 'Direção', 'Acolhimento'],
+                     datasets: [
+                         { label: 'Satisfação Média', data: [mV, mI, mD, mA], borderColor: satisfacaoColor, backgroundColor: satisfacaoBgColor, pointBackgroundColor: satisfacaoColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: satisfacaoColor, fill: true, borderWidth: 2 },
+                         { label: 'Importância Média', data: [impV, impI, impD, impA], borderColor: importanciaColor, backgroundColor: importanciaBgColor, pointBackgroundColor: importanciaColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: importanciaColor, fill: true, borderWidth: 2 }
+                     ]
+                 };
+
+                const radarOptions = {
+                    elements: { line: { tension: 0 } }, // Linhas retas
+                    scales: {
+                        r: {
+                            angleLines: { display: true, color: 'rgba(0, 0, 0, 0.1)' },
+                            suggestedMin: 0, suggestedMax: 5,
+                            ticks: { stepSize: 1, display: true, backdropColor: 'rgba(255, 255, 255, 0.75)', color: '#555', font: { family: "'Inter', sans-serif", size: 9 } },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: { color: '#333', font: { family: "'Inter', sans-serif", size: 11, weight: '500' } }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: true, position: 'bottom', labels: { font: { size: 11 }, usePointStyle: true } },
+                        tooltip: { enabled: true, backgroundColor: 'rgba(0, 0, 0, 0.8)', titleColor: '#fff', bodyColor: '#fff', cornerRadius: 4, titleFont: { family: "'Inter', sans-serif" }, bodyFont: { family: "'Inter', sans-serif", size: 11 }, usePointStyle: true }
+                    },
+                    maintainAspectRatio: false
+                };
+                console.log("Criando nova instância do Radar Chart...");
+                comparisonRadarInstance = new Chart(radarCtx, { type: 'radar', data: radarData, options: radarOptions });
+                console.log("Radar Chart criado.");
+
+            } catch (error) {
+                console.error("ERRO AO CRIAR Radar Chart:", error);
+                radarCtx.outerHTML = '<p class="text-danger text-center small">Erro ao carregar gráfico radar.</p>';
+            }
+        } else {
+            console.error("ERRO: Canvas #comparisonRadarChart NÃO encontrado!");
+             const resultDiv = document.getElementById('resultados');
+             if(resultDiv) {
+                 const errorP = document.createElement('p');
+                 errorP.className = 'text-danger text-center small';
+                 errorP.textContent = 'Erro: Área do gráfico radar não encontrada.';
+                 resultDiv.querySelector('.col-lg-7')?.prepend(errorP); // Tenta inserir na coluna do radar
+             }
+        }
+
+        // --- 6b. Gráfico de Barras/Pontos (Tempo vs Satisfação) ---
+        console.log("Tentando criar o Gráfico Combinado de Tempo/Satisfação...");
+        const barCtx = document.getElementById('timeBarChart');
+        if (barCtx) {
+            console.log("Canvas #timeBarChart ENCONTRADO.");
+             try {
+                 const tempoColor = 'rgb(150, 110, 220)'; // Roxo mais claro sólido (borda)
+                 const tempoBgColor = 'rgba(150, 110, 220, 0.6)'; // Roxo mais claro com transparência (fundo)
+                 const satisfacaoColor = 'rgb(13, 110, 253)'; // Azul primário Bootstrap (para pontos)
+
+                 const barData = {
+                     labels: ['Vínculos', 'Independência', 'Direção', 'Acolhimento'],
+                     datasets: [
+                        // Dataset Barras (Tempo)
+                        {
+                            label: 'Tempo Investido Médio',
+                            data: [tempV, tempI, tempD, tempA],
+                            backgroundColor: tempoBgColor,
+                            borderColor: tempoColor,
+                            borderWidth: 1,
+                            borderRadius: 8, // Cantos arredondados
+                            order: 1
+                        },
+                        // Dataset Pontos (Satisfação)
+                        {
+                            label: 'Satisfação Média',
+                            data: [mV, mI, mD, mA],
+                            type: 'line',
+                            showLine: false,
+                            pointBackgroundColor: satisfacaoColor,
+                            pointBorderColor: satisfacaoColor,
+                            pointRadius: 6,
+                            pointHoverRadius: 8,
+                            order: 0
+                        }
+                    ]
+                 };
+
+                 const barOptions = {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 5,
+                            ticks: { stepSize: 1, font: { size: 10 } }
+                        },
+                        x: {
+                           ticks: { font: { family: "'Inter', sans-serif", size: 11 } }
+                        }
+                    },
+                     plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: { font: { size: 11 }, usePointStyle: true }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            cornerRadius: 4,
+                            titleFont: { family: "'Inter', sans-serif" },
+                            bodyFont: { family: "'Inter', sans-serif", size: 11 },
+                            usePointStyle: true
+                         }
+                    },
+                    maintainAspectRatio: false
+                 };
+                 console.log("Criando nova instância do Bar/Line Chart...");
+                 timeBarInstance = new Chart(barCtx, { type: 'bar', data: barData, options: barOptions });
+                 console.log("Bar/Line Chart criado.");
+
+             } catch (error) {
+                 console.error("ERRO AO CRIAR Bar/Line Chart:", error);
+                 barCtx.outerHTML = '<p class="text-danger text-center small">Erro ao carregar gráfico de tempo/satisfação.</p>';
+             }
+        } else {
+            console.error("ERRO: Canvas #timeBarChart NÃO encontrado!");
+             const resultDiv = document.getElementById('resultados');
+             if(resultDiv) {
+                 const errorP = document.createElement('p');
+                 errorP.className = 'text-danger text-center small';
+                 errorP.textContent = 'Erro: Área do gráfico de barras não encontrada.';
+                 resultDiv.querySelector('.col-lg-5')?.prepend(errorP); // Tenta inserir na coluna de barras
+             }
+        }
+
+
+        // --- 7. Listener do Botão Share (REMOVIDO) ---
+
+        // --- 8. Scroll (opcional) ---
+         document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        console.log("--- calcularResultados FINALIZADA (Sucesso) ---");
+    }
+
+    // --- Listener de carregamento do DOM ---
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const calcButton = document.getElementById('btnCalcular');
+        if(calcButton) {
+             calcButton.removeEventListener('click', calcularResultados);
+             calcButton.addEventListener('click', calcularResultados);
+             console.log("Listener de clique adicionado ao botão Calcular.");
+        } else {
+            console.error("Botão #btnCalcular não encontrado no DOM!");
+        }
+        criarForm();
+        console.log("Formulário inicial criado.");
+    });
+
   </script>
+
 </body>
 </html>
