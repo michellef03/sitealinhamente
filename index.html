@@ -39,7 +39,7 @@
      /* Banner no topo */
      .banner {
        width: 100%;
-       margin-bottom: 0px;
+       margin-bottom: 0px; /* Removido espaçamento inferior do banner */
      }
      /* NavBar */
      .navbar {
@@ -315,10 +315,10 @@
   <script>
     // Variáveis globais e dados
     const areas = [
-      { grupo: "Vínculos", itens: ["Rede de Apoio", "Relacionamento Afetivo"] },
-      { grupo: "Independência", itens: ["Finanças pessoais", "Confiança nas decisões"] },
+      { grupo: "Conexão", itens: ["Rede de Apoio", "Relacionamento Afetivo"] },
+      { grupo: "Autonomia", itens: ["Finanças pessoais", "Confiança nas decisões"] },
       { grupo: "Direção", itens: ["Ocupação principal", "Desenvolvimento de Habilidades"] },
-      { grupo: "Acolhimento", itens: ["Saúde Física", "Saúde Mental"] }
+      { grupo: "AutoCuidado", itens: ["Saúde Física", "Saúde Mental"] }
     ];
 
     const opcoes = `
@@ -347,10 +347,10 @@
 
     // Textos dos Sub-Arquétipos
     const subArquetipoTextos = {
-        "Falta de Autonomia e Direção": `<p>Parece haver uma sensação de não estar no controle das suas escolhas (Independência) e/ou sem clareza sobre para onde ir (Direção), apesar de serem áreas importantes para você. Isso pode gerar frustração. Talvez o foco inicial seja recuperar pequenos espaços de escolha ou definir um próximo passo, mesmo que pequeno.</p>`,
-        "Falta de Conexão Social": `<p>Suas relações de apoio (Vínculos) foram sinalizadas como importantes, mas a satisfação atual parece baixa. Esse sentimento de desconexão ou falta de apoio pode impactar outras áreas. Refletir sobre o que falta nessas conexões ou buscar novos espaços de troca pode ser um caminho.</p>`,
+        "Falta de Autonomia e Direção": `<p>Parece haver uma sensação de não estar no controle das suas escolhas (Autonomia) e/ou sem clareza sobre para onde ir (Direção), apesar de serem áreas importantes para você. Isso pode gerar frustração. Talvez o foco inicial seja recuperar pequenos espaços de escolha ou definir um próximo passo, mesmo que pequeno.</p>`,
+        "Falta de Conexão Social": `<p>Suas relações de apoio (Conexão) foram sinalizadas como importantes, mas a satisfação atual parece baixa. Esse sentimento de desconexão ou falta de apoio pode impactar outras áreas. Refletir sobre o que falta nessas conexões ou buscar novos espaços de troca pode ser um caminho.</p>`,
         "Em transição de prioridades": `<p>Duas ou mais dimensões foram marcadas como muito importantes, mas com baixa satisfação. Isso frequentemente indica um momento de mudança, onde suas prioridades podem estar se realinhando. É uma boa hora para reavaliar onde sua energia está sendo mais bem investida.</p>`,
-        "Contradições Ativas": `<p>Dentro de uma mesma dimensão (Vínculos, Independência, Direção ou Acolhimento), parece haver um contraste grande entre a satisfação nas diferentes áreas que a compõem. Essas tensões internas podem gerar confusão ou cansaço. Olhar para cada área separadamente pode ajudar a clarear.</p>`,
+        "Contradições Ativas": `<p>Dentro de uma mesma dimensão (Conexão, Autonomia, Direção ou Auto Conhecimento), parece haver um contraste grande entre a satisfação nas diferentes áreas que a compõem. Essas tensões internas podem gerar confusão ou cansaço. Olhar para cada área separadamente pode ajudar a clarear.</p>`,
         "Produtividade Vazia": `<p>Você parece dedicar bastante tempo e energia a certas áreas, mas a satisfação retornada é baixa. Isso pode indicar um desalinhamento entre esforço e resultado percebido, ou talvez expectativas que precisam ser reajustadas. Vale a pena questionar se o esforço está na direção certa.</p>`,
         "Intenção sem Ação": `<p>Algumas áreas foram identificadas como muito importantes, mas recebem pouco tempo ou energia prática. Existe a intenção, mas ela ainda não se traduziu em movimento consistente. Começar com pequenos passos ou entender o que impede a ação pode ser útil.</p>`,
         "✨Intenção em Ação✨": `<p>Parabéns! Seus resultados sugerem um bom nível de alinhamento entre o que você valoriza, como se sente e onde investe seu tempo na maioria das áreas. O desafio agora é manter esse equilíbrio com leveza e consistência, adaptando-se às mudanças naturais da vida.</p>`
@@ -420,20 +420,20 @@
 
     function getArquetipo(diffVI, diffDA) {
       const limiar = 0.5;
-      const vinculosMaior = diffVI > limiar;
-      const independenciaMaior = diffVI < -limiar;
+      const conexãoMaior = diffVI > limiar;
+      const autonomiaMaior = diffVI < -limiar;
       const direcaoMaior = diffDA > limiar;
-      const acolhimentoMaior = diffDA < -limiar;
+      const autocuidadoMaior = diffDA < -limiar; // Corrigido aqui
 
-      if (vinculosMaior && direcaoMaior) return "Conexão e Ação";
-      if (vinculosMaior && acolhimentoMaior) return "Conexão e Pausa";
-      if (independenciaMaior && direcaoMaior) return "Autonomia em Movimento";
-      if (independenciaMaior && acolhimentoMaior) return "Autonomia e Recolhimento";
+      if (conexãoMaior && direcaoMaior) return "Conexão e Ação";
+      if (conexãoMaior && autocuidadoMaior) return "Conexão e Pausa"; // Corrigido aqui
+      if (autonomiaMaior && direcaoMaior) return "Autonomia em Movimento";
+      if (autonomiaMaior && autocuidadoMaior) return "Autonomia e Recolhimento"; // Corrigido aqui
 
       if (Math.abs(diffVI) > Math.abs(diffDA)) {
-          return vinculosMaior ? "Foco em Conexão" : "Foco em Autonomia";
+          return conexãoMaior ? "Foco em Conexão" : "Foco em Autonomia";
       } else if (Math.abs(diffDA) > Math.abs(diffVI)) {
-          return direcaoMaior ? "Foco em Direção" : "Foco em Acolhimento";
+          return direcaoMaior ? "Foco em Direção" : "Foco em AutoCuidado"; // Corrigido aqui
       } else {
           return "Equilíbrio Geral";
       }
@@ -443,9 +443,9 @@
     function calcularSubArquetipo() {
        let matched = [];
        const rows = document.querySelectorAll('#formTable tbody tr');
-       let satDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
-       let impDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
-       let tempDim = { Vínculos: [], Independência: [], Direção: [], Acolhimento: [] };
+       let satDim = { Conexão: [], Autonomia: [], Direção: [], AutoCuidado: [] }; // Atualizado
+       let impDim = { Conexão: [], Autonomia: [], Direção: [], AutoCuidado: [] }; // Atualizado
+       let tempDim = { Conexão: [], Autonomia: [], Direção: [], AutoCuidado: [] }; // Atualizado
        rows.forEach(row => {
          const areaName = row.getAttribute('data-area');
          let macro = "";
@@ -454,10 +454,17 @@
          const imp = Number(selects[0].value) || 0;
          const sat = Number(selects[1].value) || 0;
          const temp = Number(selects[2].value) || 0;
-         satDim[macro].push(sat); impDim[macro].push(imp); tempDim[macro].push(temp);
+         // Verifica se a dimensão (macro) existe antes de adicionar
+         if (satDim[macro]) {
+            satDim[macro].push(sat);
+            impDim[macro].push(imp);
+            tempDim[macro].push(temp);
+         } else {
+            console.warn(`Dimensão não encontrada para a área: ${areaName}`);
+         }
        });
        function media(arr) { return arr.reduce((acc, n) => acc + n, 0) / (arr.length || 1); }
-       let mV = media(satDim["Vínculos"]); let mI = media(satDim["Independência"]); let mD = media(satDim["Direção"]); let mA = media(satDim["Acolhimento"]);
+       let mV = media(satDim["Conexão"]); let mI = media(satDim["Autonomia"]); let mD = media(satDim["Direção"]); let mA = media(satDim["AutoCuidado"]); // Atualizado
        function mediaImp(dim) { return media(impDim[dim]); }
 
        if (mV >= 3.5 && mI >= 3.5 && mD >= 3.5 && mA >= 3.5) {
@@ -465,14 +472,14 @@
          return matched;
        }
 
-       if (mI <= 2 && mD <= 2 && mediaImp("Independência") >= 4 && mediaImp("Direção") >= 4) {
+       if (mI <= 2 && mD <= 2 && mediaImp("Autonomia") >= 4 && mediaImp("Direção") >= 4) {
          matched.push("Falta de Autonomia e Direção");
        }
-       if (mV <= 2 && mediaImp("Vínculos") >= 4 && mI > 2 && mD > 2 && mA > 2) {
+       if (mV <= 2 && mediaImp("Conexão") >= 4 && mI > 2 && mD > 2 && mA > 2) {
          matched.push("Falta de Conexão Social");
        }
        let contDimBaixaSatAltaImp = 0;
-       [["Vínculos", mV], ["Independência", mI], ["Direção", mD], ["Acolhimento", mA]].forEach(pair => {
+       [["Conexão", mV], ["Autonomia", mI], ["Direção", mD], ["AutoCuidado", mA]].forEach(pair => { // Atualizado
           let [dim, satM] = pair;
           if (satM <= 2 && mediaImp(dim) >= 4) contDimBaixaSatAltaImp++;
        });
@@ -480,7 +487,7 @@
           matched.push("Em transição de prioridades");
        }
        for (let macro in satDim) {
-          if (satDim[macro].length > 1) {
+          if (satDim[macro] && satDim[macro].length > 1) { // Verifica se macro existe
               let minVal = Math.min(...satDim[macro]);
               let maxVal = Math.max(...satDim[macro]);
               if (maxVal - minVal >= 3) {
@@ -565,6 +572,7 @@
             const mediaImportanciaGrupo = somaImp / numItens;
             const mediaTempoGrupo = somaTempo / numItens;
 
+            // Usa o nome do grupo definido em 'areas' como chave
             resultadosPorGrupo[area.grupo] = {
                 itens: itensDoGrupo,
                 statusGrupo,
@@ -684,10 +692,10 @@
                   <div class="card-body">
                     <p>O método P.A.R.E. é um convite para viver com mais intenção:</p>
                     <ul class="list-unstyled ps-3">
-                      <li>🅿️  <strong>Parar:</strong> Sair do piloto automático (você já começou!).</li>
-                      <li>🅰️  <strong>Avaliar:</strong> Entender sua situação atual (o teste ajuda aqui).</li>
-                      <li>🆁  <strong>Roteirizar:</strong> Criar um plano de ação viável.</li>
-                      <li>🅴  <strong>Estabilizar:</strong> Manter o que funciona e ajustar o necessário.</li>
+                      <li>🅿️ &nbsp;<strong>Parar:</strong> Sair do piloto automático (você já começou!).</li>
+                      <li>🅰️ &nbsp;<strong>Avaliar:</strong> Entender sua situação atual (o teste ajuda aqui).</li>
+                      <li>🆁 &nbsp;<strong>Roteirizar:</strong> Criar um plano de ação viável.</li>
+                      <li>🅴 &nbsp;<strong>Estabilizar:</strong> Manter o que funciona e ajustar o necessário.</li>
                     </ul>
                     <p class="mt-3"><strong>✨ E depois?</strong></p>
                     <p>Após identificar as áreas de foco, te convido a acompanhar a série completa do método no canal <a href="https://www.youtube.com/@LongaHistoriaCurta" target="_blank" style="color: blue; text-decoration: underline;">Longa História Curta</a> para os próximos passos (Avaliar, Roteirizar, Estabilizar).</p>
@@ -701,8 +709,13 @@
         htmlContent += `<h3 class="detalhes-title mb-4">Detalhes por Dimensão</h3>`;
         let gruposHTML = "";
         let index = 0;
-        for (const grupo in results.resultadosPorGrupo) {
+        // Usa os nomes dos grupos definidos em 'areas' para garantir a ordem
+        areas.forEach(areaInfo => {
+            const grupo = areaInfo.grupo;
             const g = results.resultadosPorGrupo[grupo];
+            // Pula se por algum motivo o grupo não foi calculado
+            if (!g) return;
+
             const collapseId = `collapseGroup${index++}`;
             const indicador = grupoIndicadores[g.statusGrupo] || "";
             let borderClass = 'border-secondary';
@@ -726,6 +739,7 @@
                     </div>
                     <div class="collapse mt-3" id="${collapseId}">
             `;
+            // Itera sobre os itens DENTRO do grupo calculado
             g.itens.forEach(i => {
                 let itemBorderColor = '#6c757d';
                 if (i.status === 'Equilibrado') itemBorderColor = '#198754';
@@ -741,7 +755,8 @@
                 `;
             });
             gruposHTML += `</div></div></div>`;
-        }
+        });
+
 
         return htmlContent + gruposHTML;
     }
@@ -776,20 +791,18 @@
         console.log("Iniciando cálculos...");
         const { resultadosPorGrupo, resumo } = calculateGroupResults();
 
-        const mV = resultadosPorGrupo["Vínculos"]?.mediaSatisfacao || 0;
-        const mI = resultadosPorGrupo["Independência"]?.mediaSatisfacao || 0;
-        const mD = resultadosPorGrupo["Direção"]?.mediaSatisfacao || 0;
-        const mA = resultadosPorGrupo["Acolhimento"]?.mediaSatisfacao || 0;
-        const impV = resultadosPorGrupo["Vínculos"]?.mediaImportancia || 0;
-        const impI = resultadosPorGrupo["Independência"]?.mediaImportancia || 0;
-        const impD = resultadosPorGrupo["Direção"]?.mediaImportancia || 0;
-        const impA = resultadosPorGrupo["Acolhimento"]?.mediaImportancia || 0;
-        const tempV = resultadosPorGrupo["Vínculos"]?.mediaTempo || 0;
-        const tempI = resultadosPorGrupo["Independência"]?.mediaTempo || 0;
-        const tempD = resultadosPorGrupo["Direção"]?.mediaTempo || 0;
-        const tempA = resultadosPorGrupo["Acolhimento"]?.mediaTempo || 0;
+        // Garante a ordem correta das médias usando a ordem de 'areas'
+        const labels = areas.map(area => area.grupo);
+        const mediasSatisfacao = labels.map(label => resultadosPorGrupo[label]?.mediaSatisfacao || 0);
+        const mediasImportancia = labels.map(label => resultadosPorGrupo[label]?.mediaImportancia || 0);
+        const mediasTempo = labels.map(label => resultadosPorGrupo[label]?.mediaTempo || 0);
 
-        const diffVI = mV - mI; const diffDA = mD - mA;
+        const [mV, mI, mD, mA] = mediasSatisfacao; // Desestruturação para uso antigo, se necessário
+        const [impV, impI, impD, impA] = mediasImportancia;
+        const [tempV, tempI, tempD, tempA] = mediasTempo;
+
+        const diffVI = mV - mI; // Mantém lógica original do arquétipo por enquanto
+        const diffDA = mD - mA;
         const arquetipo = getArquetipo(diffVI, diffDA);
         const subArquetipos = calcularSubArquetipo();
         const textoSubMap = subArquetipoTextos;
@@ -821,10 +834,10 @@
                 const importanciaBgColor = 'rgba(255, 193, 7, 0.2)';
 
                 const radarData = {
-                     labels: ['Vínculos', 'Independência', 'Direção', 'Acolhimento'],
+                     labels: labels, // Usa os labels ordenados
                      datasets: [
-                         { label: 'Satisfação Média', data: [mV, mI, mD, mA], borderColor: satisfacaoColor, backgroundColor: satisfacaoBgColor, pointBackgroundColor: satisfacaoColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: satisfacaoColor, fill: true, borderWidth: 2 },
-                         { label: 'Importância Média', data: [impV, impI, impD, impA], borderColor: importanciaColor, backgroundColor: importanciaBgColor, pointBackgroundColor: importanciaColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: importanciaColor, fill: true, borderWidth: 2 }
+                         { label: 'Satisfação Média', data: mediasSatisfacao, borderColor: satisfacaoColor, backgroundColor: satisfacaoBgColor, pointBackgroundColor: satisfacaoColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: satisfacaoColor, fill: true, borderWidth: 2 },
+                         { label: 'Importância Média', data: mediasImportancia, borderColor: importanciaColor, backgroundColor: importanciaBgColor, pointBackgroundColor: importanciaColor, pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: importanciaColor, fill: true, borderWidth: 2 }
                      ]
                  };
 
@@ -875,12 +888,12 @@
                  const satisfacaoColor = 'rgb(13, 110, 253)'; // Azul primário Bootstrap (para pontos)
 
                  const barData = {
-                     labels: ['Vínculos', 'Independência', 'Direção', 'Acolhimento'],
+                     labels: labels, // Usa os labels ordenados
                      datasets: [
                         // Dataset Barras (Tempo)
                         {
                             label: 'Tempo Investido Médio',
-                            data: [tempV, tempI, tempD, tempA],
+                            data: mediasTempo,
                             backgroundColor: tempoBgColor,
                             borderColor: tempoColor,
                             borderWidth: 1,
@@ -890,7 +903,7 @@
                         // Dataset Pontos (Satisfação)
                         {
                             label: 'Satisfação Média',
-                            data: [mV, mI, mD, mA],
+                            data: mediasSatisfacao,
                             type: 'line',
                             showLine: false,
                             pointBackgroundColor: satisfacaoColor,
@@ -978,3 +991,4 @@
 
 </body>
 </html>
+
